@@ -1,0 +1,72 @@
+[
+  {
+    "code": "09.01",
+    "name": "АЛТ (аланинаминотрансфераза)",
+    "slug": "alt-alaninaminotransferaza-09-01",
+    "category": "Биохимия крови",
+    "price": 150
+  },
+  {
+    "code": "09.67",
+    "name": "Витамин D (25‑гидроксивитамин D)",
+    "slug": "vitamin-d-25-oh-09-67",
+    "category": "Витамины и микроэлементы",
+    "price": 1160
+  },
+  {
+    "code": "07.03",
+    "name": "Пролактин",
+    "slug": "prolaktin-07-03",
+    "category": "Гормоны",
+    "price": 340
+  },
+  {
+    "code": "07.06",
+    "name": "Тестостерон общий",
+    "slug": "testosteron-obshchiy-07-06",
+    "category": "Гормоны",
+    "price": 330
+  },
+  {
+    "code": "07.09",
+    "name": "Т4 (тироксин) свободный",
+    "slug": "t4-svobodnyy-07-09",
+    "category": "Гормоны щитовидной железы",
+    "price": 320
+  },
+  {
+    "code": "07.12",
+    "name": "ТТГ (тиреотропный гормон)",
+    "slug": "ttg-tireotropnyy-gormon-07-12",
+    "category": "Гормоны щитовидной железы",
+    "price": 330
+  },
+  {
+    "code": "22.01",
+    "name": "Общий анализ мочи",
+    "slug": "obshchiy-analiz-mochi-22-01",
+    "category": "Общеклинические исследования",
+    "price": 200
+  },
+  {
+    "code": "24.29",
+    "name": "Глюкоза в крови",
+    "slug": "glyukoza-v-krovi-24-29",
+    "category": "Биохимия крови",
+    "price": 300
+  },
+  {
+    "code": "18.08",
+    "name": "D‑димер",
+    "slug": "d-dimer-18-08",
+    "category": "Гемостаз",
+    "price": 950
+  },
+  {
+    "code": "19.01",
+    "name": "Общий анализ крови + формула + СОЭ",
+    "slug": "obshchiy-analiz-krovi-s-formuloy-i-soe-19-01",
+    "category": "Общеклинические исследования",
+    "price": 420
+  }
+]

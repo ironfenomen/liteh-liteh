@@ -1,0 +1,272 @@
+[
+  {
+    "id": "uzi-bca-duplex",
+    "name": "Дуплексное сканирование брахиоцефальных артерий",
+    "price": 1700
+  },
+  {
+    "id": "kolposkopiya-rasshirennaya-foto",
+    "name": "Кольпоскопия расширенная (с фотофиксацией)",
+    "price": 2200
+  },
+  {
+    "id": "uzdg-arterii-verhnie",
+    "name": "УЗДГ артерий верхних конечностей",
+    "price": 3500
+  },
+  {
+    "id": "uzdg-arterii-nizhnie",
+    "name": "УЗДГ артерий нижних конечностей",
+    "price": 3500
+  },
+  {
+    "id": "uzdg-veny-verhnie",
+    "name": "УЗДГ вен верхних конечностей",
+    "price": 3500
+  },
+  {
+    "id": "uzdg-veny-nizhnie",
+    "name": "УЗДГ вен нижних конечностей",
+    "price": 3500
+  },
+  {
+    "id": "uzi-vilochkovoy",
+    "name": "УЗИ вилочковой железы",
+    "price": 1200
+  },
+  {
+    "id": "uzi-zhelchnogo-protokov",
+    "name": "УЗИ желчного пузыря и протоков (с 6 лет)",
+    "price": 1200
+  },
+  {
+    "id": "uzi-zhelchnogo-s-sokratimostyu",
+    "name": "УЗИ желчного пузыря с определением его сократимости (с 6 лет)",
+    "price": 1200
+  },
+  {
+    "id": "uzi-kompleks-malogo-taza-tv-ta",
+    "name": "УЗИ комплексное органов малого таза (трансвагинальное и трансабдоминальное)",
+    "price": 2000
+  },
+  {
+    "id": "uzi-kompleks-malogo-taza-tv-ta-zaltan",
+    "name": "УЗИ комплексное органов малого таза (трансвагинальное и трансабдоминальное) Залтан М.А.",
+    "price": 2000
+  },
+  {
+    "id": "uzi-limfouzlov-odna-zona",
+    "name": "УЗИ лимфатических узлов (одна анатомическая зона/область) (с 6 лет)",
+    "price": 1200
+  },
+  {
+    "id": "uzi-matki-pridatkov",
+    "name": "УЗИ матки и придатков",
+    "price": 1800
+  },
+  {
+    "id": "uzi-matki-pridatkov-tv-ta",
+    "name": "УЗИ матки и придатков (трансвагинальное и трансабдоминальное)",
+    "price": 2000
+  },
+  {
+    "id": "uzi-matki-pridatkov-tr",
+    "name": "УЗИ матки и придатков (трансректальное)",
+    "price": 2000
+  },
+  {
+    "id": "uzi-matki-pridatkov-mp-ostat-mocha",
+    "name": "УЗИ матки, придатков и мочевого пузыря с определением остаточной мочи",
+    "price": 2000
+  },
+  {
+    "id": "uzi-molochnyh-zhelez",
+    "name": "УЗИ молочных желез (исследование проводится на 5–11 день от начала менструального цикла)",
+    "price": 1800
+  },
+  {
+    "id": "uzi-molochnyh-zhelez-zaltan",
+    "name": "УЗИ молочных желез (от последнего дня месячных до 11 дня включительно) Залтан М.А.",
+    "price": 1800
+  },
+  {
+    "id": "uzi-mochevogo-ostat-mocha",
+    "name": "УЗИ мочевого пузыря с определением остаточной мочи (с 6 лет)",
+    "price": 1000
+  },
+  {
+    "id": "uzi-mochevogo-truzi",
+    "name": "УЗИ мочевого пузыря трансректальное (ТРУЗИ)",
+    "price": 600
+  },
+  {
+    "id": "uzi-mochevyvodyashchih-putey",
+    "name": "УЗИ мочевыводящих путей",
+    "price": 1700
+  },
+  {
+    "id": "uzi-myagkih-tkaney-odna-zona",
+    "name": "УЗИ мягких тканей (одна анатомическая зона/область) (с 6 лет)",
+    "price": 1000
+  },
+  {
+    "id": "uzi-myagkih-tkaney-doppler",
+    "name": "УЗИ мягких тканей (одна анатомическая зона/область) (с 6 лет) с доплерометрией",
+    "price": 1400
+  },
+  {
+    "id": "uzi-nadpochechnikov",
+    "name": "УЗИ надпочечников (с 6 лет)",
+    "price": 900
+  },
+  {
+    "id": "uzi-obp",
+    "name": "УЗИ органов брюшной полости (печень, желчный пузырь, селезёнка, поджелудочная железа) (с 6 лет)",
+    "price": 2100
+  },
+  {
+    "id": "uzi-moshonki",
+    "name": "УЗИ органов мошонки",
+    "price": 1200
+  },
+  {
+    "id": "uzi-parashchitovidnyh",
+    "name": "УЗИ паращитовидных желез",
+    "price": 1100
+  },
+  {
+    "id": "uzi-parashchitovidnyh-deti",
+    "name": "УЗИ паращитовидных желез (с 6 лет)",
+    "price": 1100
+  },
+  {
+    "id": "uzi-pechen-zhelchnyy",
+    "name": "УЗИ печени и желчного пузыря (с 6 лет)",
+    "price": 1500
+  },
+  {
+    "id": "uzi-pechen",
+    "name": "УЗИ печени (с 6 лет)",
+    "price": 1200
+  },
+  {
+    "id": "uzi-plevralnoy-polosti",
+    "name": "УЗИ плевральной полости",
+    "price": 1000
+  },
+  {
+    "id": "uzi-ploda-do-11-nedel",
+    "name": "УЗИ плода до 11 недель",
+    "price": 2000
+  },
+  {
+    "id": "uzi-podzheludochnoy",
+    "name": "УЗИ поджелудочной железы (с 6 лет)",
+    "price": 1200
+  },
+  {
+    "id": "uzi-pochek-nadpochechnikov",
+    "name": "УЗИ почек и надпочечников (с 6 лет)",
+    "price": 1400
+  },
+  {
+    "id": "uzi-pochek-mp",
+    "name": "УЗИ почек, мочевого пузыря (с 6 лет)",
+    "price": 1700
+  },
+  {
+    "id": "uzi-predstatelnoy-kompleks",
+    "name": "УЗИ предстательной железы комплексное (мочевой пузырь, остаточная моча, органы мошонки) трансабдоминальное",
+    "price": 2000
+  },
+  {
+    "id": "uzi-predstatelnoy-mp-ostat-mocha",
+    "name": "УЗИ предстательной железы, мочевого пузыря, остаточная моча",
+    "price": 1400
+  },
+  {
+    "id": "uzi-predstatelnoy-truzi",
+    "name": "УЗИ предстательной железы трансректальное (ТРУЗИ)",
+    "price": 1200
+  },
+  {
+    "id": "uzi-predstatelnoy-yaichek",
+    "name": "УЗИ предстательной железы, яичек трансабдоминальное",
+    "price": 1200
+  },
+  {
+    "id": "uzi-rannih-srokov-beremennosti",
+    "name": "УЗИ ранних сроков беременности (до 11 недель)",
+    "price": 2000
+  },
+  {
+    "id": "uzi-rannih-srokov-beremennosti-zaltan",
+    "name": "УЗИ ранних сроков беременности (до 11 недель) Залтан М.А.",
+    "price": 2000
+  },
+  {
+    "id": "uzi-selezenki",
+    "name": "УЗИ селезёнки (с 6 лет)",
+    "price": 1200
+  },
+  {
+    "id": "uzi-serdca-prodoctorov",
+    "name": "УЗИ сердца (ПроДокторов)",
+    "price": 630
+  },
+  {
+    "id": "uzi-serdca-eho-kg",
+    "name": "УЗИ сердца (ЭХО-КГ)",
+    "price": 1800
+  },
+  {
+    "id": "uzi-slyunnyh-zhelez",
+    "name": "УЗИ слюнных желез",
+    "price": 1000
+  },
+  {
+    "id": "uzi-tazobedrennyh-deti",
+    "name": "УЗИ тазобедренных суставов (дети до 1 года)",
+    "price": 1400
+  },
+  {
+    "id": "uzi-follikulogeneza",
+    "name": "УЗИ фолликулогенеза",
+    "price": 1400
+  },
+  {
+    "id": "uzi-shchitovidnoy-zaltan",
+    "name": "УЗИ щитовидной железы Залтан М.А.",
+    "price": 1500
+  },
+  {
+    "id": "uzi-shchitovidnoy-limfo-parashchitovidnye",
+    "name": "УЗИ щитовидной железы регионарные лимфоузлы и паращитовидные железы",
+    "price": 1500
+  },
+  {
+    "id": "uzi-shchitovidnoy-deti",
+    "name": "УЗИ щитовидной железы (с 6 лет)",
+    "price": 1500
+  },
+  {
+    "id": "uzi-yaichnika-kontrol-follikula",
+    "name": "УЗИ яичника с контролем фолликула",
+    "price": 1400
+  },
+  {
+    "id": "ekg-opisanie",
+    "name": "ЭКГ с описанием",
+    "price": 1000
+  },
+  {
+    "id": "elastografiya-myagkie-tkani",
+    "name": "Эластография и УЗИ мягких тканей",
+    "price": 1400
+  },
+  {
+    "id": "elastografiya-podzheludochnaya",
+    "name": "Эластография и УЗИ поджелудочной железы",
+    "price": 1400
+  }
+]
