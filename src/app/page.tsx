@@ -4,7 +4,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import analyzes from "../data/analyses.json";
+import analysesData from "@/data/analyses.json";
+
+const analyses = analysesData.slice(0, 6);
 
 // ─── SEO / GEO: Structured Data (JSON-LD) ────────────────────────────────────
 // Добавлено: Organization + LocalBusiness + MedicalOrganization schema
@@ -156,7 +158,7 @@ type Analyze = {
   price?: number | null;
 };
 
-const analysesList = analyzes as Analyze[];
+const analysesList = analyses as Analyze[];
 
 const PromoCarousel = dynamic(() => import("../components/promo-carousel"), {
   loading: () => (

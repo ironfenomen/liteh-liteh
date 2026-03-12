@@ -38,7 +38,7 @@ export default function BottomNav() {
               className="flex flex-col items-center justify-center gap-1 py-3"
             >
               <Icon
-                size={20}
+                size={28}
                 strokeWidth={1.5}
                 className={iconColor}
                 aria-hidden="true"

@@ -96,14 +96,14 @@ export default function Header() {
         }`}
       >
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:py-4">
-          <Link href="/" onClick={handleLogoClick} className="flex items-center gap-4">
+          <Link href="/" onClick={handleLogoClick} className="flex shrink-0 items-center gap-4">
             <Image
               src="/liteh-logo.svg"
               alt="Литех — лабораторная диагностика"
               width={140}
               height={44}
               priority
-              className="h-11 w-auto"
+              className="h-11 w-auto shrink-0"
             />
             <span className="hidden text-xs font-medium text-slate-600 sm:inline">
               Анализы и УЗИ в Ставрополе
