@@ -22,7 +22,7 @@ export default function CookieConsentBanner() {
     <div
       role="dialog"
       aria-label="Согласие на использование cookie"
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-slate-200 bg-white/98 px-4 py-3 shadow-[0_-4px_20px_rgba(15,23,42,0.08)] backdrop-blur-sm"
+      className="fixed bottom-0 left-0 right-0 z-50 border-t border-slate-200 bg-white px-4 py-3 shadow-[0_-4px_20px_rgba(15,23,42,0.08)]"
     >
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 sm:flex-row sm:gap-4">
         <p className="text-center text-xs text-slate-600 sm:text-left">
