@@ -230,23 +230,6 @@ export default function UziPage() {
           </h2>
           <p className="text-xs text-slate-500">Найдено: {filtered.length}</p>
         </div>
-
-        <div className="rounded-2xl bg-white p-3 shadow-sm ring-1 ring-slate-100 md:p-0 md:shadow-none md:ring-0">
-          <label className="text-[13px] font-medium text-slate-800 md:mb-2 md:block">Категория</label>
-          <select
-            className="h-11 w-full rounded-[14px] border border-[#e4ecea] bg-white px-[14px] text-[13px] outline-none focus:border-[#2fbf8c] focus:bg-white focus:shadow-[0_0_0_4px_rgba(47,191,140,0.12)] md:max-w-xs"
-            value={category}
-            onChange={(e) => setCategory(e.target.value as string | "all")}
-          >
-            <option value="all">Все категории</option>
-            {categories.map((cat) => (
-              <option key={cat} value={cat}>
-                {cat}
-              </option>
-            ))}
-          </select>
-        </div>
-
         {filtered.length === 0 ? (
           <p className="text-xs text-slate-500">
             Нет исследований по вашему запросу. Измените поиск или категорию.

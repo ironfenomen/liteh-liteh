@@ -37,6 +37,24 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
   const [photoError, setPhotoError] = useState(false);
   const showPhoto = doctor.photo && !photoError;
 
+  const computedPrice = (() => {
+    const specs = doctor.specialties.map((s) => s.toLowerCase());
+    let minPrice = 2000;
+
+    if (specs.some((s) => s.includes("психиатр"))) {
+      minPrice = 3500;
+    } else if (specs.some((s) => s.includes("психолог"))) {
+      minPrice = 3000;
+    }
+
+    const raw = doctor.priceFrom ?? "";
+    const digits = raw.replace(/\D/g, "");
+    const current = digits ? parseInt(digits, 10) : null;
+    const final = current !== null && current > minPrice ? current : minPrice;
+
+    return `Прием от ${final} ₽`;
+  })();
+
   return (
     <article
       className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#e8f0ee] bg-white shadow-sm ring-1 ring-slate-100 transition-all duration-200 ease-out hover:shadow-md hover:ring-emerald-100"
@@ -68,7 +86,14 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
             )}
             {(doctor.experience || doctor.badge) && (
               <p className="mt-1 text-[12px] text-slate-500">
-                {[doctor.experience, doctor.badge].filter(Boolean).join(" · ")}
+                {[
+                  doctor.experience
+                    ? `Стаж ${doctor.experience.toLowerCase()}`
+                    : null,
+                  doctor.badge,
+                ]
+                  .filter(Boolean)
+                  .join(" · ")}
               </p>
             )}
           </div>
@@ -92,7 +117,7 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
 
         {doctor.priceFrom && (
           <p className="mt-2 text-[13px] font-medium text-slate-700">
-            {doctor.priceFrom}
+            {computedPrice}
           </p>
         )}
 

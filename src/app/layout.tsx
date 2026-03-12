@@ -70,13 +70,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="flex min-h-screen flex-col">
             <Header />
 
-          <main className="mx-auto flex w-full flex-1 flex-col px-4 py-8 pb-16 md:py-12 md:pb-0">
+          <main className="mx-auto flex w-full flex-1 flex-col px-4 py-8 pb-20 md:py-12 md:pb-0">
             <div className="mx-auto mb-10 w-full max-w-5xl rounded-[24px] border border-slate-100 bg-white px-5 py-6 shadow-sm md:max-w-6xl md:px-10 md:py-10">
               {children}
             </div>
           </main>
 
-          <footer className="mt-8 border-t border-emerald-100 bg-white">
+          <footer className="mt-8 border-t border-emerald-100 bg-white pb-20">
             <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 md:flex-row md:items-center md:justify-between">
               <div className="text-xs text-slate-500">
                 <p>
@@ -184,42 +184,27 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </a>
           </div>
 
-          <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-emerald-100 bg-white py-2.5 shadow-[0_-4px_12px_rgba(15,23,42,0.05)] md:hidden">
-            <div className="flex items-center justify-around w-full px-2">
-              <Link
-                href="/analizy"
-                className="flex flex-col items-center justify-center flex-1 py-2 gap-1 min-w-0"
-              >
-                <span className="w-5 h-5 flex-shrink-0">🧪</span>
-                <span className="text-[10px] leading-tight text-center w-full truncate">Анализы</span>
+          <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-emerald-100 bg-white shadow-[0_-4px_12px_rgba(15,23,42,0.05)] md:hidden">
+            <div className="grid grid-cols-5 w-full">
+              <Link href="/analizy" className="flex flex-col items-center justify-center py-3 gap-1">
+                <span className="text-xl leading-none">🧪</span>
+                <span className="text-[9px] leading-tight text-center text-gray-600 px-0.5">Анализы</span>
               </Link>
-              <Link
-                href="/uzi"
-                className="flex flex-col items-center justify-center flex-1 py-2 gap-1 min-w-0"
-              >
-                <span className="w-5 h-5 flex-shrink-0">🔍</span>
-                <span className="text-[10px] leading-tight text-center w-full truncate">УЗИ</span>
+              <Link href="/uzi" className="flex flex-col items-center justify-center py-3 gap-1">
+                <span className="text-xl leading-none">🔍</span>
+                <span className="text-[9px] leading-tight text-center text-gray-600 px-0.5">УЗИ</span>
               </Link>
-              <Link
-                href="/medsestra"
-                className="flex flex-col items-center justify-center flex-1 py-2 gap-1 min-w-0"
-              >
-                <span className="w-5 h-5 flex-shrink-0">🏠</span>
-                <span className="text-[10px] leading-tight text-center w-full truncate">Анализы на дому</span>
+              <Link href="/medsestra" className="flex flex-col items-center justify-center py-3 gap-1">
+                <span className="text-xl leading-none">🏠</span>
+                <span className="text-[9px] leading-tight text-center text-gray-600 px-0.5">Анализы на дому</span>
               </Link>
-              <Link
-                href="/vyezd-vracha"
-                className="flex flex-col items-center justify-center flex-1 py-2 gap-1 min-w-0"
-              >
-                <span className="w-5 h-5 flex-shrink-0">🚑</span>
-                <span className="text-[10px] leading-tight text-center w-full truncate">Вызвать врача</span>
+              <Link href="/vyezd-vracha" className="flex flex-col items-center justify-center py-3 gap-1">
+                <span className="text-xl leading-none">🚑</span>
+                <span className="text-[9px] leading-tight text-center text-gray-600 px-0.5">Вызвать врача</span>
               </Link>
-              <Link
-                href="/vraci"
-                className="flex flex-col items-center justify-center flex-1 py-2 gap-1 min-w-0"
-              >
-                <span className="w-5 h-5 flex-shrink-0">👩‍⚕️</span>
-                <span className="text-[10px] leading-tight text-center w-full truncate">Прием врачей</span>
+              <Link href="/vraci" className="flex flex-col items-center justify-center py-3 gap-1">
+                <span className="text-xl leading-none">👩‍⚕️</span>
+                <span className="text-[9px] leading-tight text-center text-gray-600 px-0.5">Прием врачей</span>
               </Link>
             </div>
           </div>

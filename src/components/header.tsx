@@ -112,7 +112,7 @@ export default function Header() {
 
           <a
             href={TEL_HREF}
-            className="text-[13px] font-medium text-slate-800 md:hidden"
+            className="text-[13px] font-medium text-slate-800 md:hidden whitespace-nowrap"
           >
             +7 988 865-27-77
           </a>
