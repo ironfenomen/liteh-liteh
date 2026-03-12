@@ -44,6 +44,9 @@ const inter = Inter({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru">
+      <head>
+        <link rel="alternate" href="https://liteh26.ru/" />
+      </head>
       <body className={`${inter.className} min-h-screen text-slate-900 antialiased`}>
         <Script id="yandex-metrika" strategy="afterInteractive">
           {`

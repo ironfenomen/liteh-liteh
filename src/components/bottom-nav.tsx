@@ -28,8 +28,8 @@ export default function BottomNav() {
           const active = pathname === href;
           const iconColor = active ? "text-emerald-600" : "text-emerald-300";
           const textColor = active
-            ? "text-emerald-600 font-medium"
-            : "text-emerald-300";
+            ? "text-slate-900 font-medium"
+            : "text-slate-600";
 
           return (
             <Link
