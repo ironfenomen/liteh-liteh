@@ -71,7 +71,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Header />
 
           <main className="mx-auto flex w-full flex-1 flex-col px-4 py-8 pb-24 md:py-12 md:pb-12">
-            <div className="mx-auto mb-10 w-full max-w-5xl rounded-[24px] border border-slate-100 bg-white px-5 py-6 shadow-[0_20px_60px_rgba(15,23,42,0.08)] md:max-w-6xl md:px-10 md:py-10">
+            <div className="mx-auto mb-10 w-full max-w-5xl rounded-[24px] border border-slate-100 bg-white px-5 py-6 shadow-sm md:max-w-6xl md:px-10 md:py-10">
               {children}
             </div>
           </main>

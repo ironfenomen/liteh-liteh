@@ -158,10 +158,12 @@ export default function Header() {
         aria-hidden={!drawerOpen}
         style={{ pointerEvents: drawerOpen ? "auto" : "none" }}
       >
-        <div
-          className="absolute inset-0 bg-slate-900 opacity-40 transition-opacity duration-300"
-          onClick={() => setDrawerOpen(false)}
-        />
+        {drawerOpen && (
+          <div
+            className="absolute inset-0 bg-slate-900 opacity-40 transition-opacity duration-300"
+            onClick={() => setDrawerOpen(false)}
+          />
+        )}
         <div
           className={`absolute right-0 top-0 flex h-full w-full max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300 ease-out ${
             drawerOpen ? "translate-x-0" : "translate-x-full"
