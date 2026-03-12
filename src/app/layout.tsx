@@ -7,6 +7,7 @@ import Script from "next/script";
 import { CartProvider } from "../components/cart-provider";
 import CookieConsentBanner from "../components/cookie-consent-banner";
 import Header from "../components/header";
+import BottomNav from "../components/bottom-nav";
 
 export const metadata: Metadata = {
   title: "Анализы и УЗИ в Ставрополе — Лаборатория Литех",
@@ -184,30 +185,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </a>
           </div>
 
-          <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-emerald-100 bg-white shadow-[0_-4px_12px_rgba(15,23,42,0.05)] md:hidden">
-            <div className="grid grid-cols-5 w-full">
-              <Link href="/analizy" className="flex flex-col items-center justify-center py-3 gap-1">
-                <span className="text-xl leading-none">🧪</span>
-                <span className="text-[9px] leading-tight text-center text-gray-600 px-0.5">Анализы</span>
-              </Link>
-              <Link href="/uzi" className="flex flex-col items-center justify-center py-3 gap-1">
-                <span className="text-xl leading-none">🔍</span>
-                <span className="text-[9px] leading-tight text-center text-gray-600 px-0.5">УЗИ</span>
-              </Link>
-              <Link href="/medsestra" className="flex flex-col items-center justify-center py-3 gap-1">
-                <span className="text-xl leading-none">🏠</span>
-                <span className="text-[9px] leading-tight text-center text-gray-600 px-0.5">Анализы на дому</span>
-              </Link>
-              <Link href="/vyezd-vracha" className="flex flex-col items-center justify-center py-3 gap-1">
-                <span className="text-xl leading-none">🚑</span>
-                <span className="text-[9px] leading-tight text-center text-gray-600 px-0.5">Вызвать врача</span>
-              </Link>
-              <Link href="/vraci" className="flex flex-col items-center justify-center py-3 gap-1">
-                <span className="text-xl leading-none">👩‍⚕️</span>
-                <span className="text-[9px] leading-tight text-center text-gray-600 px-0.5">Прием врачей</span>
-              </Link>
-            </div>
-          </div>
+          <BottomNav />
           <CookieConsentBanner />
           </div>
         </CartProvider>
