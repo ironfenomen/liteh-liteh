@@ -50,7 +50,7 @@ export default function AkciiPage() {
             key={item.id}
             href={item.href}
             id={item.id === "svo" ? "svo" : undefined}
-            className="group flex flex-col rounded-2xl border border-[#e8f0ee] bg-white p-5 shadow-sm ring-1 ring-slate-100/80 transition-all duration-[0.25s] ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:ring-emerald-100"
+            className="group flex flex-col rounded-2xl border border-[#e8f0ee] bg-white p-5 shadow-sm ring-1 ring-slate-100 transition-all duration-[0.25s] ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:ring-emerald-100"
           >
             <div className="flex items-start gap-4">
               <PromoIcon icon={item.icon} />
@@ -70,7 +70,7 @@ export default function AkciiPage() {
         ))}
       </section>
 
-      <section className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-center text-sm text-slate-600 ring-1 ring-slate-100/80 md:p-6">
+      <section className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-center text-sm text-slate-600 ring-1 ring-slate-100 md:p-6">
         <p>
           Условия акций не суммируются. Точный перечень услуг и размер скидки
           уточняйте по телефону{" "}

@@ -159,7 +159,7 @@ export default function Header() {
         style={{ pointerEvents: drawerOpen ? "auto" : "none" }}
       >
         <div
-          className="absolute inset-0 bg-slate-900/40 transition-opacity duration-300"
+          className="absolute inset-0 bg-slate-900 opacity-40 transition-opacity duration-300"
           onClick={() => setDrawerOpen(false)}
         />
         <div
@@ -311,7 +311,7 @@ export default function Header() {
               </svg>
               <div className="flex flex-col items-center leading-tight">
                 <span className="text-sm font-semibold">{MAIN_PHONE}</span>
-                <span className="text-[11px] text-emerald-50/90">
+                <span className="text-[11px] text-emerald-700">
                   Ежедневно с 7:30
                 </span>
               </div>

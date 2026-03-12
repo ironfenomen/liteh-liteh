@@ -184,7 +184,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </a>
           </div>
 
-          <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-emerald-100 bg-white/95 px-3 py-2.5 shadow-[0_-4px_12px_rgba(15,23,42,0.05)] md:hidden">
+          <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-emerald-100 bg-white px-3 py-2.5 shadow-[0_-4px_12px_rgba(15,23,42,0.05)] md:hidden">
             <div className="mx-auto flex max-w-6xl items-stretch justify-between gap-1.5 text-[11px] font-medium text-slate-700">
               <Link
                 href="/analizy"

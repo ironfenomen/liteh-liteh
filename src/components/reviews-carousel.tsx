@@ -33,7 +33,7 @@ function ReviewTypeBadge({ type }: { type: Review["type"] }) {
 
 function ReviewCard({ item }: { item: Review }) {
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-[#e8f0ee] bg-white p-4 shadow-sm ring-1 ring-slate-100/80 transition-all duration-[0.25s] ease-out hover:shadow-lg hover:ring-emerald-100 md:p-5">
+    <div className="flex h-full flex-col rounded-2xl border border-[#e8f0ee] bg-white p-4 shadow-sm ring-1 ring-slate-100 transition-all duration-[0.25s] ease-out hover:shadow-lg hover:ring-emerald-100 md:p-5">
       <div className="flex items-start justify-between gap-2">
         <ReviewTypeBadge type={item.type} />
         <span className="text-[11px] font-medium text-slate-400">{item.date}</span>
@@ -112,7 +112,7 @@ export default function ReviewsCarousel() {
           type="button"
           onClick={scrollPrev}
           aria-label="Предыдущие отзывы"
-          className="absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 -translate-x-1 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-600 shadow-md transition hover:border-emerald-200 hover:bg-white hover:text-emerald-700 disabled:opacity-40 md:-translate-x-2"
+          className="absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 -translate-x-1 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-emerald-200 hover:bg-white hover:text-emerald-700 disabled:opacity-40 md:-translate-x-2"
           disabled={!canPrev}
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -123,7 +123,7 @@ export default function ReviewsCarousel() {
           type="button"
           onClick={scrollNext}
           aria-label="Следующие отзывы"
-          className="absolute right-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 translate-x-1 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-600 shadow-md transition hover:border-emerald-200 hover:bg-white hover:text-emerald-700 disabled:opacity-40 md:translate-x-2"
+          className="absolute right-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 translate-x-1 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-emerald-200 hover:bg-white hover:text-emerald-700 disabled:opacity-40 md:translate-x-2"
           disabled={!canNext}
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

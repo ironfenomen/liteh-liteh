@@ -10,7 +10,7 @@ const PromoCarousel = dynamic(() => import("../components/promo-carousel"), {
         {[1, 2, 3].map((i) => (
           <div
             key={i}
-            className="h-28 rounded-2xl border border-slate-100 bg-slate-50/80"
+            className="h-28 rounded-2xl border border-slate-100 bg-gray-50"
           />
         ))}
       </div>
@@ -28,7 +28,7 @@ const ReviewsCarousel = dynamic(
           {[1, 2, 3].map((i) => (
             <div
               key={i}
-              className="h-32 rounded-2xl border border-slate-100 bg-slate-50/80"
+              className="h-32 rounded-2xl border border-slate-100 bg-gray-50"
             />
           ))}
         </div>
@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <div className="space-y-8">
-      <section className="grid max-w-full gap-8 overflow-hidden rounded-3xl bg-white px-4 py-6 shadow-sm ring-1 ring-emerald-100 sm:px-6 sm:py-8 md:grid-cols-[minmax(0,2fr),minmax(0,1.4fr)] md:bg-gradient-to-br md:from-emerald-50/60 md:via-white md:to-orange-50/60 md:px-10 md:py-10">
+      <section className="grid max-w-full gap-8 overflow-hidden rounded-3xl bg-white px-4 py-6 shadow-sm ring-1 ring-emerald-100 sm:px-6 sm:py-8 md:grid-cols-[minmax(0,2fr),minmax(0,1.4fr)] md:bg-gradient-to-br md:from-emerald-50 md:via-white md:to-orange-50 md:px-10 md:py-10">
         <div className="space-y-4 sm:space-y-5 max-w-full md:max-w-xl">
           <h1 className="max-w-full text-2xl font-semibold leading-tight tracking-tight text-slate-900 break-words sm:text-3xl md:text-4xl">
             Анализы и УЗИ в Ставрополе
@@ -53,7 +53,7 @@ export default function Home() {
             цены и удобные филиалы рядом с домом.
           </p>
           <div className="space-y-4">
-            <div className="rounded-2xl bg-white/90 p-4 shadow-sm ring-1 ring-slate-100">
+            <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
               <p className="text-[13px] font-medium text-slate-800">
                 Найдите нужный анализ по названию или коду
               </p>
@@ -72,13 +72,13 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-wrap gap-2 text-xs text-slate-600">
-              <span className="rounded-full bg-white/70 px-3 py-1">
+              <span className="rounded-full bg-white px-3 py-1">
                 Забор крови с 07:30
               </span>
-              <span className="rounded-full bg-white/70 px-3 py-1">
+              <span className="rounded-full bg-white px-3 py-1">
                 Результаты онлайн
               </span>
-              <span className="rounded-full bg-white/70 px-3 py-1">
+              <span className="rounded-full bg-white px-3 py-1">
                 Филиалы рядом с домом
               </span>
               <Link
@@ -105,7 +105,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-between gap-4 rounded-2xl bg-white/90 p-4 shadow-sm ring-1 ring-slate-100">
+        <div className="flex flex-col justify-between gap-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
           <div className="space-y-3">
             <h2 className="text-sm font-semibold text-slate-900">
               Направления клиники
@@ -255,9 +255,9 @@ export default function Home() {
         <PromoCarousel />
       </section>
 
-      <section className="rounded-3xl border border-[#e8f0ee] bg-gradient-to-br from-slate-50/80 to-white px-5 py-6 shadow-sm ring-1 ring-slate-100/80 md:px-7 md:py-7">
+      <section className="rounded-3xl border border-[#e8f0ee] bg-gradient-to-br from-gray-50 to-white px-5 py-6 shadow-sm ring-1 ring-slate-100 md:px-7 md:py-7">
         <div className="flex items-center gap-2 text-slate-900">
-          <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white text-emerald-600 shadow-sm ring-1 ring-slate-200/80">
+          <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white text-emerald-600 shadow-sm ring-1 ring-slate-200">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4">
               <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" strokeLinejoin="round" />
               <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" strokeLinecap="round" strokeLinejoin="round" />
@@ -266,7 +266,7 @@ export default function Home() {
           <h2 className="text-lg font-semibold">Филиалы</h2>
         </div>
         <div className="mt-4 grid gap-3 md:grid-cols-3">
-          <div className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100/80 transition hover:shadow-md hover:ring-emerald-100/50">
+          <div className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100 transition hover:shadow-md hover:ring-emerald-100">
             <p className="font-semibold text-slate-900">
               ул. 45 Параллель, д.2
             </p>
@@ -290,7 +290,7 @@ export default function Home() {
               <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
             </Link>
           </div>
-          <div className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100/80 transition hover:shadow-md hover:ring-emerald-100/50">
+          <div className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100 transition hover:shadow-md hover:ring-emerald-100">
             <p className="font-semibold text-slate-900">
               ул. 45 Параллель, д.26а
             </p>
@@ -314,7 +314,7 @@ export default function Home() {
               <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
             </Link>
           </div>
-          <div className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100/80 transition hover:shadow-md hover:ring-emerald-100/50">
+          <div className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100 transition hover:shadow-md hover:ring-emerald-100">
             <p className="font-semibold text-slate-900">
               пер. Каховский, 26а
             </p>
@@ -342,9 +342,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="rounded-3xl border border-[#e8f0ee] bg-gradient-to-br from-emerald-50/40 to-white px-5 py-6 shadow-sm ring-1 ring-emerald-100/60 md:px-7 md:py-7">
+      <section className="rounded-3xl border border-[#e8f0ee] bg-gradient-to-br from-emerald-50 to-white px-5 py-6 shadow-sm ring-1 ring-emerald-100 md:px-7 md:py-7">
         <div className="flex items-center gap-2 text-slate-900">
-          <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white text-emerald-600 shadow-sm ring-1 ring-emerald-200/60">
+          <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white text-emerald-600 shadow-sm ring-1 ring-emerald-200">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4">
               <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -354,7 +354,7 @@ export default function Home() {
           </h2>
         </div>
         <div className="mt-4 grid gap-3 md:grid-cols-3">
-          <div className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100/80 transition hover:shadow-md hover:ring-emerald-100/50">
+          <div className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100 transition hover:shadow-md hover:ring-emerald-100">
             <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </span>
@@ -366,7 +366,7 @@ export default function Home() {
               алкоголя и интенсивных нагрузок.
             </p>
           </div>
-          <div className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100/80 transition hover:shadow-md hover:ring-emerald-100/50">
+          <div className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100 transition hover:shadow-md hover:ring-emerald-100">
             <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-sky-100 text-sky-600">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4"><path d="M4 12h16M4 8h8M4 16h12" strokeLinecap="round" /><rect x="2" y="4" width="20" height="16" rx="2" strokeDasharray="2 2" /></svg>
             </span>
@@ -376,7 +376,7 @@ export default function Home() {
               проводится натощак, часть — с наполненным мочевым пузырём.
             </p>
           </div>
-          <div className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100/80 transition hover:shadow-md hover:ring-emerald-100/50">
+          <div className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100 transition hover:shadow-md hover:ring-emerald-100">
             <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-amber-100 text-amber-600">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </span>

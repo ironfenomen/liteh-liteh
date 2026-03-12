@@ -98,7 +98,7 @@ export default function AnalizyPage() {
           биоматериала проводится во всех филиалах лаборатории «Литех».
         </p>
         <div className="grid gap-4 md:grid-cols-[minmax(0,2fr),minmax(0,1fr)]">
-          <div ref={searchWrapRef} className="relative rounded-2xl bg-white/90 p-4 shadow-sm ring-1 ring-slate-100">
+          <div ref={searchWrapRef} className="relative rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
             <label className="text-[13px] font-medium text-slate-800">
               Поиск анализа
             </label>
@@ -133,7 +133,7 @@ export default function AnalizyPage() {
               </div>
             </div>
           </div>
-          <div className="rounded-2xl bg-white/90 p-4 shadow-sm ring-1 ring-slate-100">
+          <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
             <label className="text-[13px] font-medium text-slate-800">
               Категория
             </label>
@@ -193,8 +193,8 @@ export default function AnalizyPage() {
                     onClick={toggleCategory}
                     className={`flex w-full items-center justify-between gap-2 px-4 py-3 text-left transition-colors ${
                       isExpanded
-                        ? "bg-emerald-50/80 text-emerald-800"
-                        : "bg-slate-50/80 text-slate-800 hover:bg-slate-100/80"
+                        ? "bg-emerald-50 text-emerald-800"
+                        : "bg-slate-50 text-slate-800 hover:bg-slate-100"
                     }`}
                   >
                     <span className="font-semibold">{catKey}</span>
@@ -217,7 +217,7 @@ export default function AnalizyPage() {
                   >
                     <div className="border-t border-slate-100">
                       {/* Desktop: table header */}
-                      <div className="hidden grid-cols-[minmax(0,2.2fr),minmax(0,1.4fr),minmax(0,0.7fr),minmax(0,0.8fr)] border-b border-slate-100 bg-slate-50/50 px-4 py-3 text-[11px] font-medium uppercase tracking-wide text-slate-500 md:grid">
+                      <div className="hidden grid-cols-[minmax(0,2.2fr),minmax(0,1.4fr),minmax(0,0.7fr),minmax(0,0.8fr)] border-b border-slate-100 bg-slate-50 px-4 py-3 text-[11px] font-medium uppercase tracking-wide text-slate-500 md:grid">
                         <span>Название</span>
                         <span>Категория</span>
                         <span>Код</span>

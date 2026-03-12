@@ -39,7 +39,7 @@ function PromoCard({ item }: { item: Promotion }) {
   return (
     <Link
       href={item.href}
-      className="group flex h-full flex-col rounded-2xl border border-[#e8f0ee] bg-white p-4 shadow-sm ring-1 ring-slate-100/80 transition-all duration-[0.25s] ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:ring-emerald-100 md:p-5"
+      className="group flex h-full flex-col rounded-2xl border border-[#e8f0ee] bg-white p-4 shadow-sm ring-1 ring-slate-100 transition-all duration-[0.25s] ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:ring-emerald-100 md:p-5"
     >
       <div className="flex items-start gap-3">
         <PromoIcon icon={item.icon} />
@@ -110,7 +110,7 @@ export default function PromoCarousel() {
           type="button"
           onClick={scrollPrev}
           aria-label="Предыдущие акции"
-          className="absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 -translate-x-1 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-600 shadow-md transition hover:border-emerald-200 hover:bg-white hover:text-emerald-700 disabled:opacity-40 md:-translate-x-2"
+          className="absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 -translate-x-1 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-emerald-200 hover:bg-white hover:text-emerald-700 disabled:opacity-40 md:-translate-x-2"
           disabled={!canPrev}
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -121,7 +121,7 @@ export default function PromoCarousel() {
           type="button"
           onClick={scrollNext}
           aria-label="Следующие акции"
-          className="absolute right-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 translate-x-1 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-600 shadow-md transition hover:border-emerald-200 hover:bg-white hover:text-emerald-700 disabled:opacity-40 md:translate-x-2"
+          className="absolute right-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 translate-x-1 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-emerald-200 hover:bg-white hover:text-emerald-700 disabled:opacity-40 md:translate-x-2"
           disabled={!canNext}
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

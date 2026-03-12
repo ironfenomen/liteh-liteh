@@ -99,7 +99,7 @@ export default function VraciPage() {
 
       <section>
         {sorted.length === 0 ? (
-          <p className="rounded-2xl border border-[#e8f0ee] bg-slate-50/50 px-4 py-8 text-center text-[14px] text-slate-600">
+          <p className="rounded-2xl border border-[#e8f0ee] bg-slate-50 px-4 py-8 text-center text-[14px] text-slate-600">
             По выбранным фильтрам врачи не найдены. Измените филиал, специальность или поиск по имени.
           </p>
         ) : (

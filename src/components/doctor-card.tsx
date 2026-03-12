@@ -39,7 +39,7 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
 
   return (
     <article
-      className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#e8f0ee] bg-white shadow-sm ring-1 ring-slate-100/80 transition-all duration-200 ease-out hover:shadow-md hover:ring-emerald-100/80"
+      className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#e8f0ee] bg-white shadow-sm ring-1 ring-slate-100 transition-all duration-200 ease-out hover:shadow-md hover:ring-emerald-100"
       data-doctor-id={doctor.id}
     >
       <div className="flex min-h-0 flex-1 flex-col p-4 md:p-5">
