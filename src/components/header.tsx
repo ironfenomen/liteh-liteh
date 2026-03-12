@@ -110,6 +110,13 @@ export default function Header() {
             </span>
           </Link>
 
+          <a
+            href={TEL_HREF}
+            className="text-[13px] font-medium text-slate-800 md:hidden"
+          >
+            +7 988 865-27-77
+          </a>
+
           <nav className="hidden items-center gap-4 text-sm font-medium text-slate-700 md:flex">
             {navItems.map(({ href, label }) => (
               <Link key={href} href={href} className="hover:text-sky-700">

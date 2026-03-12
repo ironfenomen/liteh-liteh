@@ -1,6 +1,6 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import analyzes from "../data/analyzes.json";
+import analyzes from "../data/analyses.json";
 
 const PromoCarousel = dynamic(() => import("../components/promo-carousel"), {
   loading: () => (
@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <div className="space-y-8">
-      <section className="grid max-w-full gap-8 overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-50/60 via-white to-orange-50/60 px-4 py-6 shadow-sm ring-1 ring-emerald-100 sm:px-6 sm:py-8 md:grid-cols-[minmax(0,2fr),minmax(0,1.4fr)] md:px-10 md:py-10">
+      <section className="grid max-w-full gap-8 overflow-hidden rounded-3xl bg-white px-4 py-6 shadow-sm ring-1 ring-emerald-100 sm:px-6 sm:py-8 md:grid-cols-[minmax(0,2fr),minmax(0,1.4fr)] md:bg-gradient-to-br md:from-emerald-50/60 md:via-white md:to-orange-50/60 md:px-10 md:py-10">
         <div className="space-y-4 sm:space-y-5 max-w-full md:max-w-xl">
           <h1 className="max-w-full text-2xl font-semibold leading-tight tracking-tight text-slate-900 break-words sm:text-3xl md:text-4xl">
             Анализы и УЗИ в Ставрополе

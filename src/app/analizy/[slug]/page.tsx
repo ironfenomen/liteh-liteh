@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import analyzes from "../../../data/analyzes.json";
+import analyzes from "../../../data/analyses.json";
 
 type Analyze = {
   code: string;

@@ -1,0 +1,65 @@
+[
+  {
+    "code": "19.01",
+    "name": "Общий анализ крови + формула + СОЭ",
+    "slug": "obshij-analiz-krovi-formula-soe-19-01",
+    "category": "КЛИНИЧЕСКИЕ ИССЛЕДОВАНИЯ КРОВИ",
+    "price": 420
+  },
+  {
+    "code": "09.01",
+    "name": "АЛТ (аланинаминотрансфераза)",
+    "slug": "alt-alaninaminotransferaza-09-01",
+    "category": "Биохимия крови",
+    "price": 150
+  },
+  {
+    "code": "09.67",
+    "name": "Липидный профиль расширенный",
+    "slug": "lipidnyj-profil-rasshirennyj-09-67",
+    "category": "Биохимия крови",
+    "price": 1160
+  },
+  {
+    "code": "07.03",
+    "name": "Инсулин",
+    "slug": "insulin-07-03",
+    "category": "Гормоны",
+    "price": 340
+  },
+  {
+    "code": "07.06",
+    "name": "С-пептид",
+    "slug": "s-peptid-07-06",
+    "category": "Гормоны",
+    "price": 330
+  },
+  {
+    "code": "22.01",
+    "name": "Общий анализ мочи",
+    "slug": "obshij-analiz-mochi-22-01",
+    "category": "Исследования мочи",
+    "price": 200
+  },
+  {
+    "code": "24.29",
+    "name": "Креатинин",
+    "slug": "kreatinin-24-29",
+    "category": "Биохимия крови",
+    "price": 300
+  },
+  {
+    "code": "18.08",
+    "name": "ТТГ",
+    "slug": "ttg-18-08",
+    "category": "Гормоны",
+    "price": 950
+  },
+  {
+    "code": "99.99",
+    "name": "Анализ без цены в прайсе",
+    "slug": "analiz-bez-ceny-v-prajse-99-99",
+    "category": "Прочее",
+    "price": null
+  }
+]
