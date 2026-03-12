@@ -9,8 +9,8 @@ const branches = [
     mapUrl: "https://yandex.ru/profile/214201864017?lang=ru",
   },
   {
-    title: "Филиал на 45 Параллели, д.26а",
-    address: "Ставрополь, ул. 45 Параллель, д.26а",
+    title: "Филиал на 45 Параллели, д.26",
+    address: "Ставрополь, ул. 45 Параллель, д.26",
     hours: "07:30 — 19:00",
     services: "Анализы, УЗИ, прием врачей, детские врачи",
     mapUrl: "https://yandex.ru/profile/183400884271?lang=ru",

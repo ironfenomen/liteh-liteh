@@ -11,7 +11,7 @@ import Header from "../components/header";
 export const metadata: Metadata = {
   title: "Анализы и УЗИ в Ставрополе — Лаборатория Литех",
   description:
-    "Лаборатория Литех в Ставрополе: сдать анализы от 150 ₽, УЗИ от 600 ₽. Три филиала, забор крови с 7:30, результаты онлайн. Запись по телефону +7 988 865-27-77.",
+    "Литех — медицина рядом с домом. Анализы, УЗИ, приём врачей и выезд на дом без суеты и очередей. Цены ниже сетевых лабораторий, результаты в день сдачи. Принимаем взрослых и детей. 3 филиала в Ставрополе.",
   keywords:
     "анализы Ставрополь, сдать анализы Ставрополь, УЗИ Ставрополь, лаборатория Ставрополь, анализы крови цена",
   verification: {
@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="flex min-h-screen flex-col">
             <Header />
 
-          <main className="mx-auto flex w-full flex-1 flex-col px-4 py-8 pb-24 md:py-12 md:pb-12">
+          <main className="mx-auto flex w-full flex-1 flex-col px-4 py-8 pb-16 md:py-12 md:pb-0">
             <div className="mx-auto mb-10 w-full max-w-5xl rounded-[24px] border border-slate-100 bg-white px-5 py-6 shadow-sm md:max-w-6xl md:px-10 md:py-10">
               {children}
             </div>
@@ -184,42 +184,48 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </a>
           </div>
 
-          <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-emerald-100 bg-white px-3 py-2.5 shadow-[0_-4px_12px_rgba(15,23,42,0.05)] md:hidden">
-            <div className="mx-auto flex max-w-6xl items-stretch justify-between gap-1.5 text-[11px] font-medium text-slate-700">
+          <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-emerald-100 bg-white py-2.5 shadow-[0_-4px_12px_rgba(15,23,42,0.05)] md:hidden">
+            <div className="mx-auto grid w-full max-w-md grid-cols-5 text-[10px] leading-tight font-medium text-slate-700">
               <Link
                 href="/analizy"
-                className="flex flex-1 flex-col items-center rounded-2xl px-2 py-1.5 active:bg-emerald-50"
+                className="flex w-full flex-col items-center justify-center gap-1 rounded-2xl py-2 active:bg-emerald-50"
               >
-                <span className="text-[17px] leading-none">🧪</span>
-                <span className="mt-0.5">Анализы</span>
+                <span className="h-5 w-5 text-[17px] leading-none">🧪</span>
+                <span className="mt-0.5 text-center">Анализы</span>
               </Link>
               <Link
                 href="/uzi"
-                className="flex flex-1 flex-col items-center rounded-2xl px-2 py-1.5 active:bg-emerald-50"
+                className="flex w-full flex-col items-center justify-center gap-1 rounded-2xl py-2 active:bg-emerald-50"
               >
-                <span className="text-[17px] leading-none">🔍</span>
-                <span className="mt-0.5">УЗИ</span>
+                <span className="h-5 w-5 text-[17px] leading-none">🔍</span>
+                <span className="mt-0.5 text-center">УЗИ</span>
               </Link>
               <Link
                 href="/medsestra"
-                className="flex flex-1 flex-col items-center rounded-2xl px-2 py-1.5 active:bg-emerald-50"
+                className="flex w-full flex-col items-center justify-center gap-1 rounded-2xl py-2 active:bg-emerald-50"
               >
-                <span className="text-[17px] leading-none">🏠</span>
-                <span className="mt-0.5 text-center">Анализы на дому</span>
+                <span className="h-5 w-5 text-[17px] leading-none">🏠</span>
+                <span className="mt-0.5 text-[10px] leading-tight text-center">
+                  Анализы на дому
+                </span>
               </Link>
               <Link
                 href="/vyezd-vracha"
-                className="flex flex-1 flex-col items-center rounded-2xl px-2 py-1.5 active:bg-emerald-50"
+                className="flex w-full flex-col items-center justify-center gap-1 rounded-2xl py-2 active:bg-emerald-50"
               >
-                <span className="text-[17px] leading-none">🚑</span>
-                <span className="mt-0.5 text-center">Вызвать врача</span>
+                <span className="h-5 w-5 text-[17px] leading-none">🚑</span>
+                <span className="mt-0.5 text-[10px] leading-tight text-center">
+                  Вызвать врача
+                </span>
               </Link>
               <Link
                 href="/vraci"
-                className="flex flex-1 flex-col items-center rounded-2xl px-2 py-1.5 active:bg-emerald-50"
+                className="flex w-full flex-col items-center justify-center gap-1 rounded-2xl py-2 active:bg-emerald-50"
               >
-                <span className="text-[17px] leading-none">👩‍⚕️</span>
-                <span className="mt-0.5 text-center">Прием врачей</span>
+                <span className="h-5 w-5 text-[17px] leading-none">👩‍⚕️</span>
+                <span className="mt-0.5 text-[10px] leading-tight text-center">
+                  Прием врачей
+                </span>
               </Link>
             </div>
           </div>

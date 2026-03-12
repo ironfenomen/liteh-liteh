@@ -81,7 +81,7 @@ export default function VraciPage() {
             <span className="font-medium text-slate-800">Литех / Амадея</span> — ул. 45-я Параллель, д. 2
           </li>
           <li className="rounded-xl border border-[#e8f0ee] bg-white px-3 py-2 shadow-sm">
-            <span className="font-medium text-slate-800">Амадея Kids</span> — ул. 45-я Параллель, д. 26а
+            <span className="font-medium text-slate-800">Амадея Kids</span> — Ставрополь, ул. 45 Параллель, д. 26
           </li>
           <li className="rounded-xl border border-[#e8f0ee] bg-white px-3 py-2 shadow-sm">
             <span className="font-medium text-slate-800">Амадея Детокс</span> — пер. Каховский, д. 26а

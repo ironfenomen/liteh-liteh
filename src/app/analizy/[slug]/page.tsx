@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import analyzes from "../../../data/analyses.json";
 
+// Не пререндерить все slug — часть путей слишком длинные для файловой системы
+export const dynamic = "force-dynamic";
+
 type Analyze = {
   code: string;
   name: string;
@@ -15,10 +18,6 @@ type Analyze = {
 type Props = {
   params: { slug: string };
 };
-
-export function generateStaticParams() {
-  return (analyzes as Analyze[]).map((item) => ({ slug: item.slug }));
-}
 
 export function generateMetadata({ params }: Props): Metadata {
   const item = (analyzes as Analyze[]).find(

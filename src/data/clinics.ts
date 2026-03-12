@@ -18,7 +18,7 @@ export const CLINICS: Record<ClinicId, Clinic> = {
     id: "kids",
     name: "Амадея Kids",
     shortName: "45 Параллель, 26",
-    address: "ул. 45-я Параллель, д. 26а",
+    address: "Ставрополь, ул. 45 Параллель, д. 26",
   },
   detox: {
     id: "detox",

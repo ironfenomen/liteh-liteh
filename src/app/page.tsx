@@ -292,7 +292,7 @@ export default function Home() {
           </div>
           <div className="rounded-2xl border border-[#e8f0ee] bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100 transition hover:shadow-md hover:ring-emerald-100">
             <p className="font-semibold text-slate-900">
-              ул. 45 Параллель, д.26а
+              Ставрополь, ул. 45 Параллель, д.26
             </p>
             <p className="mt-1.5 text-slate-500">07:30 — 19:00</p>
             <p className="mt-1 text-slate-600">
