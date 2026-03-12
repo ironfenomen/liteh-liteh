@@ -69,36 +69,59 @@ export default function UziPage() {
             скрипта парсинга с сайта ProDoctorov.
           </p>
         ) : (
-          <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200">
-            <div className="grid grid-cols-[minmax(0,2.5fr),minmax(0,0.7fr),minmax(0,0.8fr)] border-b border-slate-200 bg-slate-50 px-3 py-2 text-[11px] font-medium uppercase tracking-wide text-slate-500">
-              <span>Исследование</span>
-              <span className="text-right">Цена</span>
-              <span className="text-right">Записаться</span>
-            </div>
-            <div className="divide-y divide-slate-100 text-xs">
+          <>
+            <div className="grid gap-3 sm:grid-cols-2 md:hidden">
               {filtered.map((item) => (
                 <div
                   key={item.id}
-                  className="grid grid-cols-[minmax(0,2.5fr),minmax(0,0.7fr),minmax(0,0.8fr)] items-center px-3 py-2"
+                  className="flex flex-col rounded-2xl border border-slate-200 bg-white p-4 shadow-sm ring-1 ring-slate-100"
                 >
-                  <span className="pr-2 text-slate-900">{item.name}</span>
-                  <span className="text-right font-semibold text-slate-900">
+                  <p className="text-sm font-medium text-slate-900">{item.name}</p>
+                  <p className="mt-2 text-xl font-semibold text-slate-900">
                     {item.price ? `${item.price} ₽` : "уточнить"}
-                  </span>
-                  <span className="flex justify-end">
-                    <Link
-                      href="https://booking.medflex.ru/?user=d08403255205cfe5edb04db2691b5e68&source=3"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-full bg-sky-500 px-3 py-1.5 text-[11px] font-semibold text-white shadow-sm transition hover:bg-sky-600"
-                    >
-                      Записаться
-                    </Link>
-                  </span>
+                  </p>
+                  <Link
+                    href="https://booking.medflex.ru/?user=d08403255205cfe5edb04db2691b5e68&source=3"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-3 inline-flex w-full items-center justify-center rounded-xl bg-sky-500 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-600"
+                  >
+                    Записаться
+                  </Link>
                 </div>
               ))}
             </div>
-          </div>
+            <div className="hidden overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 md:block">
+              <div className="grid grid-cols-[minmax(0,2.5fr),minmax(0,0.7fr),minmax(0,0.8fr)] border-b border-slate-200 bg-slate-50 px-3 py-2 text-[11px] font-medium uppercase tracking-wide text-slate-500">
+                <span>Исследование</span>
+                <span className="text-right">Цена</span>
+                <span className="text-right">Записаться</span>
+              </div>
+              <div className="divide-y divide-slate-100 text-xs">
+                {filtered.map((item) => (
+                  <div
+                    key={item.id}
+                    className="grid grid-cols-[minmax(0,2.5fr),minmax(0,0.7fr),minmax(0,0.8fr)] items-center px-3 py-2"
+                  >
+                    <span className="pr-2 text-slate-900">{item.name}</span>
+                    <span className="text-right font-semibold text-slate-900">
+                      {item.price ? `${item.price} ₽` : "уточнить"}
+                    </span>
+                    <span className="flex justify-end">
+                      <Link
+                        href="https://booking.medflex.ru/?user=d08403255205cfe5edb04db2691b5e68&source=3"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center justify-center rounded-full bg-sky-500 px-3 py-1.5 text-[11px] font-semibold text-white shadow-sm transition hover:bg-sky-600"
+                      >
+                        Записаться
+                      </Link>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
         )}
       </section>
     </div>

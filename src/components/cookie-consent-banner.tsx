@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getConsent, setConsent } from "@/lib/consent";
-import { initYandexMetrika } from "@/lib/yandex-metrika";
 
 export default function CookieConsentBanner() {
   const [visible, setVisible] = useState(false);
@@ -15,7 +14,6 @@ export default function CookieConsentBanner() {
   const accept = () => {
     setConsent();
     setVisible(false);
-    initYandexMetrika();
   };
 
   if (!visible) return null;

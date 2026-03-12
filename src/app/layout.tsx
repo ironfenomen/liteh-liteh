@@ -1,23 +1,27 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
-import Image from "next/image";
 import { ReactNode } from "react";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import { CartProvider } from "../components/cart-provider";
 import CookieConsentBanner from "../components/cookie-consent-banner";
-import MetrikaLoader from "../components/metrika-loader";
+import Header from "../components/header";
 
 export const metadata: Metadata = {
-  title: "Литех — лабораторная диагностика и УЗИ в Ставрополе",
+  title: "Анализы и УЗИ в Ставрополе — Лаборатория Литех",
   description:
-    "Лаборатория «Литех» в Ставрополе — анализы, УЗИ, прием врачей. Онлайн-запись, удобный поиск анализов, чек-апы и филиалы рядом с вами.",
+    "Лаборатория Литех в Ставрополе: сдать анализы от 150 ₽, УЗИ от 600 ₽. Три филиала, забор крови с 7:30, результаты онлайн. Запись по телефону +7 988 865-27-77.",
+  keywords:
+    "анализы Ставрополь, сдать анализы Ставрополь, УЗИ Ставрополь, лаборатория Ставрополь, анализы крови цена",
   openGraph: {
-    title: "Литех — лабораторная диагностика и УЗИ в Ставрополе",
+    title: "Анализы и УЗИ в Ставрополе — Лаборатория Литех",
     description:
-      "Современная лаборатория и УЗИ центр «Литех» в Ставрополе. Анализы, чек-апы, УЗИ и прием врачей.",
-    type: "website",
+      "Сдать анализы и УЗИ в Ставрополе. Три филиала, цены от 150 ₽, результаты онлайн.",
+    url: "https://www.liteh26.ru",
+    siteName: "Литех",
     locale: "ru_RU",
+    type: "website",
   },
 };
 
@@ -35,61 +39,31 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru">
       <body className={`${inter.className} min-h-screen text-slate-900 antialiased`}>
+        <Script id="yandex-metrika" strategy="afterInteractive">
+          {`
+            (function(m,e,t,r,i,k,a){
+              m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+              m[i].l=1*new Date();
+              for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) { return; }
+              }
+              k=e.createElement(t),a=e.getElementsByTagName(t)[0];
+              k.async=1;k.src=r;a.parentNode.insertBefore(k,a);
+            })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+            ym(107271236, "init", {
+              clickmap: true,
+              trackLinks: true,
+              accurateTrackBounce: true,
+              webvisor: true,
+              triggerEvent: true,
+              phoneHash: true
+            });
+          `}
+        </Script>
         <CartProvider>
           <div className="flex min-h-screen flex-col">
-            <header className="sticky top-0 z-30 border-b border-emerald-100 bg-white/85 backdrop-blur">
-            <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:py-4">
-              <Link href="/" className="flex items-center gap-4">
-                <Image
-                  src="/liteh-logo.svg"
-                  alt="Литех — лабораторная диагностика"
-                  width={140}
-                  height={44}
-                  priority
-                  className="h-11 w-auto"
-                />
-                <span className="hidden text-xs font-medium text-slate-600 sm:inline">
-                  Анализы и УЗИ в Ставрополе
-                </span>
-              </Link>
-
-              <nav className="hidden items-center gap-4 text-sm font-medium text-slate-700 md:flex">
-                <Link href="/analizy" className="hover:text-sky-700">
-                  Анализы
-                </Link>
-                <Link href="/uzi" className="hover:text-sky-700">
-                  УЗИ
-                </Link>
-                <Link href="/vraci" className="hover:text-sky-700">
-                  Врачи
-                </Link>
-                <Link href="/filialy" className="hover:text-sky-700">
-                  Филиалы
-                </Link>
-                <Link href="/akcii" className="hover:text-sky-700">
-                  Акции
-                </Link>
-                <Link href="/contacts" className="hover:text-sky-700">
-                  Контакты
-                </Link>
-              </nav>
-
-              <div className="flex items-center gap-2">
-                <div className="hidden flex-col text-right text-xs md:flex">
-                  <a href={`tel:${MAIN_PHONE}`} className="font-semibold">
-                    {MAIN_PHONE}
-                  </a>
-                  <span className="text-slate-500">Ежедневно с 7:30</span>
-                </div>
-                <a
-                  href={`tel:${MAIN_PHONE}`}
-                  className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-emerald-600 md:text-sm"
-                >
-                  Позвонить
-                </a>
-              </div>
-            </div>
-          </header>
+            <Header />
 
           <main className="mx-auto flex w-full flex-1 flex-col px-4 py-8 pb-24 md:py-12 md:pb-12">
             <div className="mx-auto mb-10 w-full max-w-5xl rounded-[24px] border border-slate-100 bg-white px-5 py-6 shadow-[0_20px_60px_rgba(15,23,42,0.08)] md:max-w-6xl md:px-10 md:py-10">
@@ -150,7 +124,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </footer>
 
-          <div className="fixed bottom-20 right-4 z-40 flex flex-col gap-3 md:bottom-6">
+          <div className="fixed bottom-24 right-4 z-40 flex flex-col gap-3 md:bottom-6">
             <a
               href={`tel:${MAIN_PHONE}`}
               className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 transition-all duration-200 ease-out hover:-translate-y-[1px] hover:bg-emerald-600 hover:shadow-[0_10px_25px_rgba(0,0,0,0.15)]"
@@ -235,17 +209,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <span className="text-[17px] leading-none">🚑</span>
                 <span className="mt-0.5 text-center">Вызвать врача</span>
               </Link>
-              <a
-                href={`tel:${MAIN_PHONE}`}
-                className="flex flex-1 flex-col items-center rounded-2xl bg-emerald-500 px-2 py-1.5 text-[11px] font-semibold text-white shadow-sm active:bg-emerald-600"
+              <Link
+                href="/vraci"
+                className="flex flex-1 flex-col items-center rounded-2xl px-2 py-1.5 active:bg-emerald-50"
               >
-                <span className="text-[17px] leading-none">📞</span>
-                <span className="mt-0.5">Позвонить</span>
-              </a>
+                <span className="text-[17px] leading-none">👩‍⚕️</span>
+                <span className="mt-0.5 text-center">Прием врачей</span>
+              </Link>
             </div>
           </div>
           <CookieConsentBanner />
-          <MetrikaLoader />
           </div>
         </CartProvider>
       </body>
