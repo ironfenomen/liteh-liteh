@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import analyzes from "../../../data/analyses.json";
+import SchemaMarkup from "../../../components/seo/SchemaMarkup";
 
 // Не пререндерить все slug — часть путей слишком длинные для файловой системы
 export const dynamic = "force-dynamic";
@@ -69,8 +70,25 @@ export default function AnalyzePage({ params }: Props) {
     );
   }
 
+  const baseUrl = "https://liteh26.ru";
   return (
     <div className="space-y-8">
+      <SchemaMarkup
+        skipGlobal
+        medicalTest={{
+          name: item.name,
+          code: item.code,
+          description: item.description,
+          preparation: item.preparation,
+          price: item.price,
+          url: `${baseUrl}/analizy/${item.slug}`,
+        }}
+        breadcrumbs={[
+          { name: "Главная", url: baseUrl },
+          { name: "Анализы", url: `${baseUrl}/analizy` },
+          { name: item.name, url: `${baseUrl}/analizy/${item.slug}` },
+        ]}
+      />
       <section className="space-y-3 rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200 md:p-6">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>

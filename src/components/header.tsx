@@ -6,20 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { submitLead } from "../lib/submit-lead";
+import { SITE_NAV } from "../data/site-nav";
 
 const MAIN_PHONE = "+7 988 865-27-77";
 const TEL_HREF = "tel:+79888652777";
 const TELEGRAM = "@amadeyastav";
 const WHATSAPP = "+7 988 865-27-77";
-
-const navItems = [
-  { href: "/analizy", label: "Анализы" },
-  { href: "/uzi", label: "УЗИ" },
-  { href: "/vraci", label: "Врачи" },
-  { href: "/filialy", label: "Филиалы" },
-  { href: "/akcii", label: "Акции" },
-  { href: "/contacts", label: "Контакты" },
-] as const;
 
 export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -96,7 +88,12 @@ export default function Header() {
         }`}
       >
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:py-4">
-          <Link href="/" onClick={handleLogoClick} className="flex shrink-0 items-center gap-4">
+          <Link
+            href="/"
+            onClick={handleLogoClick}
+            title="Литех — главная страница: анализы и УЗИ в Ставрополе"
+            className="flex shrink-0 items-center gap-4"
+          >
             <Image
               src="/liteh-logo.svg"
               alt="Литех — лабораторная диагностика"
@@ -117,9 +114,17 @@ export default function Header() {
             +7 988 865-27-77
           </a>
 
-          <nav className="hidden items-center gap-4 text-sm font-medium text-slate-700 md:flex">
-            {navItems.map(({ href, label }) => (
-              <Link key={href} href={href} className="hover:text-sky-700">
+          <nav
+            className="hidden items-center gap-3 text-sm font-medium text-slate-700 md:flex md:flex-wrap md:gap-x-4"
+            aria-label="Основная навигация по сайту"
+          >
+            {SITE_NAV.map(({ href, label, title }) => (
+              <Link
+                key={href}
+                href={href}
+                title={title}
+                className="hover:text-sky-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-1 rounded"
+              >
                 {label}
               </Link>
             ))}
@@ -190,11 +195,15 @@ export default function Header() {
               </svg>
             </button>
           </div>
-          <nav className="flex flex-1 flex-col overflow-auto px-2 py-3">
-            {navItems.map(({ href, label }, index) => (
+          <nav
+            className="flex flex-1 flex-col overflow-auto px-2 py-3"
+            aria-label="Меню разделов сайта"
+          >
+            {SITE_NAV.map(({ href, label, title }, index) => (
               <Link
                 key={href}
                 href={href}
+                title={title}
                 onClick={() => setDrawerOpen(false)}
                 className={`group flex items-center justify-between border-b border-slate-100 px-3 py-3 text-[18px] font-medium tracking-[0.01em] text-slate-800 transition-transform duration-200 ease-out ${
                   drawerOpen

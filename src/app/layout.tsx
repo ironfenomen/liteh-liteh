@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 import Link from "next/link";
 import { ReactNode } from "react";
@@ -8,8 +9,13 @@ import { CartProvider } from "../components/cart-provider";
 import CookieConsentBanner from "../components/cookie-consent-banner";
 import Header from "../components/header";
 import BottomNav from "../components/bottom-nav";
+import SchemaMarkup from "../components/seo/SchemaMarkup";
+import { SITE_NAV } from "../data/site-nav";
+
+const CANONICAL_BASE = "https://liteh26.ru";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(CANONICAL_BASE),
   title: "Анализы и УЗИ в Ставрополе — Лаборатория Литех",
   description:
     "Литех — медицина рядом с домом. Анализы, УЗИ, приём врачей и выезд на дом без суеты и очередей. Цены ниже сетевых лабораторий, результаты в день сдачи. Принимаем взрослых и детей. 3 филиала в Ставрополе.",
@@ -24,12 +30,21 @@ export const metadata: Metadata = {
     title: "Анализы и УЗИ в Ставрополе — Лаборатория Литех",
     description:
       "Сдать анализы и УЗИ в Ставрополе. Три филиала, цены от 150 ₽, результаты онлайн.",
-    url: "https://www.liteh26.ru",
+    url: CANONICAL_BASE,
     siteName: "Литех",
     locale: "ru_RU",
     type: "website",
   },
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") ?? "";
+  const canonical = `${CANONICAL_BASE}${pathname || "/"}`;
+  return {
+    alternates: { canonical },
+  };
+}
 
 const MAIN_PHONE = "+7 988 865-27-77";
 const TELEGRAM = "@amadeyastav";
@@ -41,11 +56,14 @@ const inter = Inter({
   display: "swap",
 });
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") ?? "";
   return (
     <html lang="ru">
       <head>
         <link rel="alternate" href="https://liteh26.ru/" />
+        <SchemaMarkup pathname={pathname} />
       </head>
       <body className={`${inter.className} min-h-screen text-slate-900 antialiased`}>
         <Script id="yandex-metrika" strategy="afterInteractive">
@@ -81,6 +99,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </main>
 
           <footer className="mt-8 border-t border-emerald-100 bg-white pb-20">
+            <div className="mx-auto max-w-6xl px-4 py-6">
+              <nav
+                className="mb-6 flex flex-wrap gap-x-4 gap-y-2 border-b border-emerald-100 pb-6"
+                aria-label="Основные разделы сайта"
+              >
+                {SITE_NAV.map(({ href, label, title }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    title={title}
+                    className="text-sm font-medium text-emerald-800 hover:text-emerald-600 hover:underline"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
             <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 md:flex-row md:items-center md:justify-between">
               <div className="text-xs text-slate-500">
                 <p>

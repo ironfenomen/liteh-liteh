@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { DOCTORS } from "../../data/doctors";
+import SchemaMarkup from "../../components/seo/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Врачи — Литех",
@@ -11,5 +13,17 @@ export default function VraciLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  const physicians = DOCTORS.map((d) => ({
+    id: d.id,
+    name: d.name,
+    specialties: d.specialties,
+    experience: d.experience,
+    url: d.bookingUrl ?? undefined,
+  }));
+  return (
+    <>
+      <SchemaMarkup skipGlobal physicians={physicians} pathname="/vraci" />
+      {children}
+    </>
+  );
 }
