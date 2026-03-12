@@ -1,0 +1,48 @@
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+> liteh-liteh@0.1.0 build
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.2s
+  Running TypeScript ...
+  Collecting page data using 1 worker ...
+  Generating static pages using 1 worker (0/1455) ...
+  Generating static pages using 1 worker (363/1455) 
+  Generating static pages using 1 worker (727/1455) 
+  Generating static pages using 1 worker (1091/1455) 
+✓ Generating static pages using 1 worker (1455/1455) in 4.7s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /akcii
+├ ○ /analizy
+├ ● /analizy/[slug]
+│ ├ /analizy/issledovanie-01-01-01-01
+│ ├ /analizy/issledovanie-01-02-01-02
+│ ├ /analizy/issledovanie-01-04-01-04
+│ └ [+1434 more paths]
+├ ƒ /api/callback
+├ ƒ /api/doctor-photo/[id]
+├ ƒ /api/lead
+├ ○ /cart
+├ ○ /contacts
+├ ○ /filialy
+├ ○ /medsestra
+├ ○ /privacy-accept
+├ ○ /privacy-policy
+├ ○ /stacionar
+├ ○ /uzi
+├ ○ /vraci
+└ ○ /vyezd-vracha
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

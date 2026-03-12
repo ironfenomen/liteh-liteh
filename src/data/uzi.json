@@ -50,11 +50,6 @@
     "price": 2000
   },
   {
-    "id": "uzi-kompleks-malogo-taza-tv-ta-zaltan",
-    "name": "УЗИ комплексное органов малого таза (трансвагинальное и трансабдоминальное) Залтан М.А.",
-    "price": 2000
-  },
-  {
     "id": "uzi-limfouzlov-odna-zona",
     "name": "УЗИ лимфатических узлов (одна анатомическая зона/область) (с 6 лет)",
     "price": 1200
@@ -200,11 +195,6 @@
     "price": 2000
   },
   {
-    "id": "uzi-rannih-srokov-beremennosti-zaltan",
-    "name": "УЗИ ранних сроков беременности (до 11 недель) Залтан М.А.",
-    "price": 2000
-  },
-  {
     "id": "uzi-selezenki",
     "name": "УЗИ селезёнки (с 6 лет)",
     "price": 1200
@@ -233,16 +223,6 @@
     "id": "uzi-follikulogeneza",
     "name": "УЗИ фолликулогенеза",
     "price": 1400
-  },
-  {
-    "id": "uzi-shchitovidnoy-zaltan",
-    "name": "УЗИ щитовидной железы Залтан М.А.",
-    "price": 1500
-  },
-  {
-    "id": "uzi-shchitovidnoy-limfo-parashchitovidnye",
-    "name": "УЗИ щитовидной железы регионарные лимфоузлы и паращитовидные железы",
-    "price": 1500
   },
   {
     "id": "uzi-shchitovidnoy-deti",

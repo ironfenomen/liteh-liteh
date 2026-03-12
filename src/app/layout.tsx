@@ -3,7 +3,10 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import { ReactNode } from "react";
+import { Inter } from "next/font/google";
 import { CartProvider } from "../components/cart-provider";
+import CookieConsentBanner from "../components/cookie-consent-banner";
+import MetrikaLoader from "../components/metrika-loader";
 
 export const metadata: Metadata = {
   title: "Литех — лабораторная диагностика и УЗИ в Ставрополе",
@@ -22,10 +25,16 @@ const MAIN_PHONE = "+7 988 865-27-77";
 const TELEGRAM = "@amadeyastav";
 const WHATSAPP = "+7 988 865-27-77";
 
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru">
-      <body className="min-h-screen text-slate-900 antialiased">
+      <body className={`${inter.className} min-h-screen text-slate-900 antialiased`}>
         <CartProvider>
           <div className="flex min-h-screen flex-col">
             <header className="sticky top-0 z-30 border-b border-emerald-100 bg-white/85 backdrop-blur">
@@ -82,7 +91,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </header>
 
-          <main className="mx-auto flex w-full flex-1 flex-col px-4 py-8 md:py-12">
+          <main className="mx-auto flex w-full flex-1 flex-col px-4 py-8 pb-24 md:py-12 md:pb-12">
             <div className="mx-auto mb-10 w-full max-w-5xl rounded-[24px] border border-slate-100 bg-white px-5 py-6 shadow-[0_20px_60px_rgba(15,23,42,0.08)] md:max-w-6xl md:px-10 md:py-10">
               {children}
             </div>
@@ -99,6 +108,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   ООО «АМАДЕЯ», ИНН 2635248939, ОГРН 1212600004165. Лицензия
                   Л041-01197-26/00327766 от 10.08.2021, Министерство
                   здравоохранения Ставропольского края.
+                </p>
+                <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                  <Link href="/privacy-policy" className="text-emerald-700 hover:underline">
+                    Политика обработки персональных данных
+                  </Link>
+                  <Link href="/privacy-accept" className="text-emerald-700 hover:underline">
+                    Согласие на обработку персональных данных
+                  </Link>
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-3 text-xs">
@@ -188,28 +205,47 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </a>
           </div>
 
-          <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-emerald-100 bg-white/95 px-4 py-2 shadow-[0_-4px_12px_rgba(15,23,42,0.05)] md:hidden">
-            <div className="mx-auto flex max-w-6xl items-center justify-between text-xs font-medium text-slate-700">
-              <Link href="/analizy" className="flex flex-1 flex-col items-center">
-                <span>Анализы</span>
-              </Link>
-              <Link href="/uzi" className="flex flex-1 flex-col items-center">
-                <span>УЗИ</span>
+          <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-emerald-100 bg-white/95 px-3 py-2.5 shadow-[0_-4px_12px_rgba(15,23,42,0.05)] md:hidden">
+            <div className="mx-auto flex max-w-6xl items-stretch justify-between gap-1.5 text-[11px] font-medium text-slate-700">
+              <Link
+                href="/analizy"
+                className="flex flex-1 flex-col items-center rounded-2xl px-2 py-1.5 active:bg-emerald-50"
+              >
+                <span className="text-[17px] leading-none">🧪</span>
+                <span className="mt-0.5">Анализы</span>
               </Link>
               <Link
-                href="/vraci"
-                className="flex flex-1 flex-col items-center"
+                href="/uzi"
+                className="flex flex-1 flex-col items-center rounded-2xl px-2 py-1.5 active:bg-emerald-50"
               >
-                <span>Записаться</span>
+                <span className="text-[17px] leading-none">🔍</span>
+                <span className="mt-0.5">УЗИ</span>
+              </Link>
+              <Link
+                href="/medsestra"
+                className="flex flex-1 flex-col items-center rounded-2xl px-2 py-1.5 active:bg-emerald-50"
+              >
+                <span className="text-[17px] leading-none">🏠</span>
+                <span className="mt-0.5 text-center">Анализы на дому</span>
+              </Link>
+              <Link
+                href="/vyezd-vracha"
+                className="flex flex-1 flex-col items-center rounded-2xl px-2 py-1.5 active:bg-emerald-50"
+              >
+                <span className="text-[17px] leading-none">🚑</span>
+                <span className="mt-0.5 text-center">Вызвать врача</span>
               </Link>
               <a
                 href={`tel:${MAIN_PHONE}`}
-                className="flex flex-1 flex-col items-center text-emerald-600"
+                className="flex flex-1 flex-col items-center rounded-2xl bg-emerald-500 px-2 py-1.5 text-[11px] font-semibold text-white shadow-sm active:bg-emerald-600"
               >
-                <span>Позвонить</span>
+                <span className="text-[17px] leading-none">📞</span>
+                <span className="mt-0.5">Позвонить</span>
               </a>
             </div>
           </div>
+          <CookieConsentBanner />
+          <MetrikaLoader />
           </div>
         </CartProvider>
       </body>

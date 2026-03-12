@@ -1,41 +1,54 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-
-async function sendRequest(data: {
-  name: string;
-  phone: string;
-  comment?: string;
-}) {
-  await fetch("/api/callback", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      ...data,
-      context: "Заявка на стационарное лечение (страница stacionar)",
-    }),
-  });
-}
+import FormConsentCheckbox from "../../components/form-consent-checkbox";
+import { submitLead } from "../../lib/submit-lead";
 
 export default function StacionarPage() {
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [consent, setConsent] = useState(false);
+  const [consentError, setConsentError] = useState(false);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!consent) {
+      setConsentError(true);
+      return;
+    }
+    setConsentError(false);
+    setError(null);
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const name = String(formData.get("name") || "");
-    const phone = String(formData.get("phone") || "");
-    const comment = String(formData.get("comment") || "");
+    const name = String(formData.get("name") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const comment = String(formData.get("comment") || "").trim() || undefined;
+    const honeypot = String(formData.get("website") || "");
 
     if (!phone) return;
 
     setSubmitting(true);
     try {
-      await sendRequest({ name, phone, comment });
+      const res = await submitLead({
+        formName: "Стационарное лечение",
+        name,
+        phone,
+        comment,
+        honeypot: honeypot || undefined,
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(
+          data.error === "PHONE_REQUIRED"
+            ? "Укажите номер телефона."
+            : "Не удалось отправить заявку. Попробуйте позже или позвоните нам."
+        );
+        return;
+      }
       setSent(true);
       form.reset();
+      setConsent(false);
     } finally {
       setSubmitting(false);
     }
@@ -97,6 +110,12 @@ export default function StacionarPage() {
             Оставьте контакты — администратор свяжется с вами для подбора профиля
             стационара, условий размещения и даты госпитализации.
           </p>
+          <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+            <label>
+              Не заполняйте
+              <input tabIndex={-1} autoComplete="off" type="text" name="website" />
+            </label>
+          </div>
           <div className="space-y-2">
             <label className="text-[11px] font-medium text-slate-700">
               ФИО
@@ -138,14 +157,21 @@ export default function StacionarPage() {
           >
             {submitting ? "Отправляем..." : "Отправить заявку"}
           </button>
+          <FormConsentCheckbox
+            checked={consent}
+            onChange={(v) => { setConsent(v); setConsentError(false); }}
+            error={consentError}
+          />
           {sent && (
             <p className="text-[11px] text-emerald-600">
               Заявка отправлена. Мы свяжемся с вами в ближайшее время.
             </p>
           )}
-          <p className="text-[11px] text-slate-400">
-            Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.
-          </p>
+          {error && (
+            <p className="text-[11px] text-rose-600">
+              {error}
+            </p>
+          )}
         </form>
       </section>
     </div>
