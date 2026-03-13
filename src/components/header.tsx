@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { submitLead } from "../lib/submit-lead";
-import { SITE_NAV } from "../data/site-nav";
+import { HEADER_NAV, SITE_NAV } from "../data/site-nav";
 
 const MAIN_PHONE = "+7 988 865-27-77";
 const TEL_HREF = "tel:+79888652777";
@@ -114,21 +114,7 @@ export default function Header() {
             +7 988 865-27-77
           </a>
 
-          <nav
-            className="hidden items-center gap-3 text-sm font-medium text-slate-700 md:flex md:flex-wrap md:gap-x-4"
-            aria-label="Основная навигация по сайту"
-          >
-            {SITE_NAV.map(({ href, label, title }) => (
-              <Link
-                key={href}
-                href={href}
-                title={title}
-                className="hover:text-sky-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-1 rounded"
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
+          {/* На десктопе навигация перенесена в футер */}
 
           <div className="flex items-center gap-2">
             <div className="hidden flex-col text-right text-xs md:flex">
@@ -199,7 +185,7 @@ export default function Header() {
             className="flex flex-1 flex-col overflow-auto px-2 py-3"
             aria-label="Меню разделов сайта"
           >
-            {SITE_NAV.map(({ href, label, title }, index) => (
+            {SITE_NAV.filter((item) => item.href !== "/").map(({ href, label, title }, index) => (
               <Link
                 key={href}
                 href={href}

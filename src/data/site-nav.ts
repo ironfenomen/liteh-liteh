@@ -15,12 +15,23 @@ export const SITE_NAV: NavItem[] = [
   { href: "/", label: "Главная", title: "Литех — главная страница: анализы и УЗИ в Ставрополе" },
   { href: "/analizy", label: "Анализы", title: "Лабораторные анализы в Ставрополе — каталог и цены" },
   { href: "/uzi", label: "УЗИ", title: "УЗИ-диагностика в Ставрополе — виды и цены" },
-  { href: "/vraci", label: "Врачи", title: "Врачи лаборатории Литех — запись на приём" },
+  { href: "/vraci", label: "Прием врачей", title: "Врачи лаборатории Литех — запись на приём" },
   { href: "/vyezd-vracha", label: "Выезд врача", title: "Выезд врача на дом в Ставрополе" },
   { href: "/medsestra", label: "Медсестра на дом", title: "Анализы на дому — выезд медсестры" },
   { href: "/stacionar", label: "Стационар", title: "Стационар — лаборатория Литех" },
   { href: "/contacts", label: "Контакты", title: "Контакты и адреса лаборатории Литех в Ставрополе" },
 ];
+
+/** Пункты только для футера (компактный блок): Главная, УЗИ, Выезд врача */
+export const FOOTER_QUICK_NAV: NavItem[] = [
+  { href: "/", label: "Главная", title: "На главную" },
+  { href: "/uzi", label: "УЗИ", title: "УЗИ-диагностика" },
+  { href: "/vyezd-vracha", label: "Выезд врача", title: "Выезд врача на дом" },
+];
+
+/** Навигация для шапки (без Главная, УЗИ, Выезд врача) */
+const HEADER_EXCLUDE = new Set(["/", "/uzi", "/vyezd-vracha"]);
+export const HEADER_NAV = SITE_NAV.filter((item) => !HEADER_EXCLUDE.has(item.href));
 
 /** URL для JSON-LD (полные ссылки) */
 export function getSiteNavUrls(): { name: string; url: string }[] {

@@ -251,20 +251,22 @@ export default function Home() {
 
       <div className="space-y-8">
         <section className="grid max-w-full gap-8 overflow-hidden rounded-3xl bg-white px-4 py-6 shadow-sm ring-1 ring-emerald-100 sm:px-6 sm:py-8 md:grid-cols-[minmax(0,2fr),minmax(0,1.4fr)] md:bg-gradient-to-br md:from-emerald-50 md:via-white md:to-orange-50 md:px-10 md:py-10">
-          <div className="space-y-4 sm:space-y-5 max-w-full md:max-w-xl">
+          {/* Hero: max-width 900–1100px, margin 0 auto, text-align center; на мобиле тоже центрируем */}
+          <div className="mx-auto w-full max-w-full space-y-4 text-center sm:space-y-5 md:max-w-[min(1100px,100%)]">
             {/* SEO: H1 с геозависимым ключевым словом — без изменения текста */}
-            <h1 className="max-w-full text-2xl font-semibold leading-tight tracking-tight text-slate-900 break-words sm:text-3xl md:text-4xl">
+            <h1 className="mx-auto max-w-full text-2xl font-semibold leading-tight tracking-tight text-slate-900 break-words sm:text-3xl md:text-4xl">
               Анализы и УЗИ в Ставрополе
             </h1>
-            <p className="max-w-full text-sm leading-relaxed text-slate-600 break-words md:max-w-xl md:text-base">
+            <p className="mx-auto max-w-full text-sm leading-relaxed text-slate-600 break-words md:max-w-xl md:text-base">
               Лаборатория «Литех» — быстрые и точные лабораторные исследования,
               УЗИ-диагностика и прием специалистов. Онлайн-запись, прозрачные
               цены и удобные филиалы рядом с домом.
             </p>
             <div className="space-y-4">
+              {/* Строка поиска: горизонтальная, контейнер центрирован */}
               <div
                 ref={searchWrapRef}
-                className="relative rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+                className="relative mx-auto max-w-2xl rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
               >
                 <p className="text-[13px] font-medium text-slate-800">
                   Найдите нужный анализ по названию или коду
@@ -273,14 +275,13 @@ export default function Home() {
                   <input
                     type="search"
                     placeholder="Например, общий анализ крови или 01-001"
-                    className="w-full rounded-[14px] border border-[#e4ecea] bg-white px-[18px] text-[15px] leading-none outline-none ring-0 placeholder:text-slate-400 focus:border-[#2fbf8c] focus:bg-white focus:shadow-[0_0_0_4px_rgba(47,191,140,0.12)] h-14 sm:flex-1"
+                    className="h-14 w-full rounded-[14px] border border-[#e4ecea] bg-white px-[18px] text-[15px] leading-none outline-none ring-0 placeholder:text-slate-400 focus:border-[#2fbf8c] focus:bg-white focus:shadow-[0_0_0_4px_rgba(47,191,140,0.12)] sm:flex-1"
                     value={query}
                     onChange={(e) => {
                       setQuery(e.target.value);
                       setDropdownOpen(true);
                     }}
                     onFocus={() => query.trim().length >= 1 && setDropdownOpen(true)}
-                    // SEO/Accessibility: добавлен aria-label для скринридеров и поисковиков
                     aria-label="Поиск анализов по названию или коду"
                   />
                   <Link
@@ -310,7 +311,8 @@ export default function Home() {
                   </div>
                 )}
               </div>
-              <div className="flex flex-wrap gap-2 text-xs text-slate-600">
+              {/* Плашки преимуществ: flex, justify-center, flex-wrap, gap 10px */}
+              <div className="flex flex-wrap justify-center gap-2.5 text-xs text-slate-600">
                 <span className="rounded-full bg-white px-3 py-1">
                   Забор крови с 07:30
                 </span>
@@ -327,7 +329,8 @@ export default function Home() {
                   Забор анализов на дому
                 </Link>
               </div>
-              <div className="flex flex-col gap-2 text-xs sm:flex-row sm:text-sm">
+              {/* Кнопки: flex, justify-center, gap 16px */}
+              <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm">
                 <Link
                   href="/contacts#callback"
                   className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-2 text-[13px] font-semibold text-white shadow-sm transition hover:bg-emerald-600"
@@ -337,7 +340,6 @@ export default function Home() {
                 <a
                   href="tel:+79888652777"
                   className="inline-flex items-center justify-center rounded-full border border-emerald-200 px-6 py-2 font-semibold text-emerald-700 transition hover:bg-emerald-50"
-                  // GEO: tel: ссылка с полным номером помогает агрегаторам извлечь контакт
                 >
                   Позвонить администратору
                 </a>
@@ -345,45 +347,45 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col justify-between gap-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-            <div className="space-y-3">
-              <h2 className="text-sm font-semibold text-slate-900">
+          <div className="flex flex-col items-center justify-between gap-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+            <div className="w-full space-y-3">
+              <h2 className="text-center text-sm font-semibold text-slate-900">
                 Направления клиники
               </h2>
               <div className="grid grid-cols-2 gap-3 text-xs">
                 <Link
                   href="/analizy"
-                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)]"
+                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center"
                 >
                   Лабораторная диагностика
                 </Link>
                 <Link
                   href="/uzi"
-                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)]"
+                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center"
                 >
                   УЗИ диагностика
                 </Link>
                 <Link
                   href="/vraci"
-                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)]"
+                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center"
                 >
                   Прием врачей
                 </Link>
                 <Link
                   href="/vyezd-vracha"
-                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)]"
+                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center"
                 >
                   Выезд врача на дом
                 </Link>
                 <Link
                   href="/medsestra"
-                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)]"
+                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center"
                 >
                   Медсестринская помощь
                 </Link>
                 <Link
                   href="/stacionar"
-                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)]"
+                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center"
                 >
                   Стационарное лечение
                 </Link>

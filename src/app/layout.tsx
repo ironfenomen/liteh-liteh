@@ -37,15 +37,6 @@ export const metadata: Metadata = {
   },
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  const headersList = await headers();
-  const pathname = headersList.get("x-pathname") ?? "";
-  const canonical = `${CANONICAL_BASE}${pathname || "/"}`;
-  return {
-    alternates: { canonical },
-  };
-}
-
 const MAIN_PHONE = "+7 988 865-27-77";
 const TELEGRAM = "@amadeyastav";
 const WHATSAPP = "+7 988 865-27-77";
@@ -92,31 +83,31 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <div className="flex min-h-screen flex-col">
             <Header />
 
-          <main className="mx-auto flex w-full flex-1 flex-col px-4 py-8 pb-20 md:py-12 md:pb-0">
-            <div className="mx-auto mb-10 w-full max-w-5xl rounded-[24px] border border-slate-100 bg-white px-5 py-6 shadow-sm md:max-w-6xl md:px-10 md:py-10">
+          <main className="mx-auto flex w-full flex-1 flex-col px-4 py-6 pb-16 md:py-12 md:pb-0">
+            <div className="mx-auto mb-0 w-full max-w-5xl rounded-[24px] border border-slate-100 bg-white px-5 pt-6 pb-0 shadow-sm md:mb-10 md:max-w-6xl md:px-10 md:py-10">
               {children}
             </div>
           </main>
 
-          <footer className="mt-8 border-t border-emerald-100 bg-white pb-20">
-            <div className="mx-auto max-w-6xl px-4 py-6">
+          <footer className="-mt-1 border-t border-emerald-100 bg-white pb-16 md:mt-8 md:pb-20">
+            <div className="mx-auto max-w-6xl px-4 pt-0 md:pt-6">
               <nav
-                className="mb-6 flex flex-wrap gap-x-4 gap-y-2 border-b border-emerald-100 pb-6"
-                aria-label="Основные разделы сайта"
+                className="flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 border-b border-emerald-100 pb-1 text-xs text-slate-500 md:justify-start md:gap-x-4 md:gap-y-1 md:pb-5"
+                aria-label="Быстрые ссылки"
               >
                 {SITE_NAV.map(({ href, label, title }) => (
                   <Link
                     key={href}
                     href={href}
                     title={title}
-                    className="text-sm font-medium text-emerald-800 hover:text-emerald-600 hover:underline"
+                    className="hover:text-emerald-600 hover:underline"
                   >
                     {label}
                   </Link>
                 ))}
               </nav>
             </div>
-            <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 md:flex-row md:items-center md:justify-between">
+            <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between md:gap-4 md:py-6">
               <div className="text-xs text-slate-500">
                 <p>
                   Сайт — продукт клиники «Амадея». Амадея является основным
