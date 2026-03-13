@@ -67,14 +67,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const analysisPages: MetadataRoute.Sitemap = (analyses as any[]).map(
-    (item) => ({
+  const analysisPages: MetadataRoute.Sitemap = (analyses as any[])
+    .filter((item: any) => item?.slug)
+    .map((item: any) => ({
       url: `${baseUrl}/analizy/${item.slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,
-    })
-  );
+    }));
 
   return [...staticPages, ...analysisPages];
 }
