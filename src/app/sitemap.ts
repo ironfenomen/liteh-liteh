@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import analyses from "@/data/analyses.json";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.liteh26.ru";
+  const baseUrl = "https://liteh26.ru";
 
   const staticPages: MetadataRoute.Sitemap = [
     {
