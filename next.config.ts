@@ -10,13 +10,22 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "amadeya26.ru", pathname: "/**" },
     ],
   },
-  // Единственный редирект: www -> основной домен. HTTP->HTTPS обрабатывает Vercel.
+  // Редиректы: www -> основной домен; HTTP -> HTTPS (для главного адреса и совместимости с Вебмастером).
   async redirects() {
     const canonical = "https://liteh26.ru";
     return [
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.liteh26.ru" }],
+        destination: `${canonical}/:path*`,
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [
+          { type: "host", value: "liteh26.ru" },
+          { type: "header", key: "x-forwarded-proto", value: "http" },
+        ],
         destination: `${canonical}/:path*`,
         permanent: true,
       },
