@@ -11,7 +11,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "amadeya26.ru", pathname: "/**" },
     ],
   },
-  // Cache-Control: страницы и прочие ответы — revalidate; статика _next/static — долгий кеш (правило для статики идёт последним, чтобы перекрыть общее).
+  // Cache-Control: страницы — must-revalidate; public/ без версии в имени — 1 день + revalidate; _next/static (хеш в пути) — immutable.
+  // Порядок важен: при совпадении нескольких правил применяется последнее.
   async headers() {
     return [
       {
@@ -23,6 +24,17 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      // Файлы из public/ (имена без хеша — при обновлении контента браузер должен перепроверить)
+      {
+        source: "/(.*)\\.(svg|png|jpg|jpeg|webp|avif|ico|woff2|woff|ttf|eot|js|css)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, must-revalidate",
+          },
+        ],
+      },
+      // _next/static — хеш в пути, безопасно кешировать надолго
       {
         source: "/_next/static/:path*",
         headers: [
