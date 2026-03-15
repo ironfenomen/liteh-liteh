@@ -16,6 +16,10 @@ const CANONICAL_BASE = "https://liteh26.ru";
 
 export const metadata: Metadata = {
   metadataBase: new URL(CANONICAL_BASE),
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/apple-touch-icon.png",
+  },
   title: "Анализы и УЗИ в Ставрополе — Лаборатория Литех",
   description:
     "Литех — медицина рядом с домом. Анализы, УЗИ, приём врачей и выезд на дом без суеты и очередей. Цены ниже сетевых лабораторий, результаты в день сдачи. Принимаем взрослых и детей. 3 филиала в Ставрополе.",
