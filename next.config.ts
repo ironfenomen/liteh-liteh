@@ -11,6 +11,29 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "amadeya26.ru", pathname: "/**" },
     ],
   },
+  // Cache-Control: страницы и прочие ответы — revalidate; статика _next/static — долгий кеш (правило для статики идёт последним, чтобы перекрыть общее).
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, must-revalidate",
+          },
+        ],
+      },
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
+  },
   // Редиректы: www -> основной домен; HTTP -> HTTPS (для главного адреса и совместимости с Вебмастером).
   async redirects() {
     const canonical = "https://liteh26.ru";
