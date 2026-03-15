@@ -16,15 +16,15 @@ const jsonLd = {
   "@graph": [
     {
       "@type": ["MedicalOrganization", "LocalBusiness"],
-      "@id": "https://litech26.ru/#organization",
+      "@id": "https://liteh26.ru/#organization",
       name: "Лаборатория Литех",
       alternateName: "Литех — лабораторная диагностика Ставрополь",
       description:
         "Медицинская лаборатория «Литех» в Ставрополе. Лабораторные анализы, УЗИ-диагностика, приём врачей, выезд медсестры на дом. Более 800 видов исследований. Результаты онлайн.",
-      url: "https://litech26.ru",
+      url: "https://liteh26.ru",
       telephone: "+7-988-865-27-77",
       priceRange: "₽₽",
-      image: "https://litech26.ru/og-image.jpg",
+      image: "https://liteh26.ru/og-image.jpg",
       medicalSpecialty: "Laboratory Medicine",
       address: [
         {
@@ -82,13 +82,13 @@ const jsonLd = {
     },
     {
       "@type": "WebPage",
-      "@id": "https://litech26.ru/#webpage",
-      url: "https://litech26.ru",
+      "@id": "https://liteh26.ru/#webpage",
+      url: "https://liteh26.ru",
       name: "Анализы и УЗИ в Ставрополе — Лаборатория «Литех»",
       description:
         "Сдать анализы в Ставрополе в лаборатории «Литех». 800+ видов исследований, УЗИ, прием врачей, выезд медсестры на дом. Результаты онлайн. 3 филиала, забор крови с 07:30.",
       inLanguage: "ru",
-      isPartOf: { "@id": "https://litech26.ru/#organization" },
+      isPartOf: { "@id": "https://liteh26.ru/#organization" },
       breadcrumb: {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -96,7 +96,7 @@ const jsonLd = {
             "@type": "ListItem",
             position: 1,
             name: "Главная",
-            item: "https://litech26.ru",
+            item: "https://liteh26.ru",
           },
         ],
       },

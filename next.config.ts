@@ -24,6 +24,16 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      // Sitemap: явный Cache-Control, чтобы не перезаписать Content-Type и кеш от route handler
+      {
+        source: "/sitemap.xml",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600, must-revalidate",
+          },
+        ],
+      },
       // Файлы из public/ (имена без хеша — при обновлении контента браузер должен перепроверить)
       {
         source: "/(.*)\\.(svg|png|jpg|jpeg|webp|avif|ico|woff2|woff|ttf|eot|js|css)",

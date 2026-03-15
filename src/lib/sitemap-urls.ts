@@ -1,11 +1,16 @@
 /**
- * Данные для sitemap.xml. Используется в app/sitemap.xml/route.ts.
- * Раньше использовался app/sitemap.ts (MetadataRoute), но ответ мог отдаваться как plain text;
- * явный route handler гарантирует валидный XML и Content-Type.
+ * Источник URL для единственного канонического Sitemap: https://liteh26.ru/sitemap.xml
+ * Соответствие: протокол Sitemap, требования Яндекса (Вебмастер, индексация, гео).
+ *
+ * В Sitemap попадают только индексируемые канонические страницы (200 OK, без noindex).
+ * Исключены: cart, privacy-policy, privacy-accept, api, служебные и нецелевые страницы.
  */
 import analysesData from "@/data/analyses.json";
 
-const baseUrl = "https://liteh26.ru";
+/** Канонический домен без www. Все <loc> только с этим хостом. */
+const BASE = "https://liteh26.ru";
+
+const MAX_URLS = 50000;
 
 export type SitemapEntry = {
   url: string;
@@ -14,27 +19,28 @@ export type SitemapEntry = {
   priority?: number;
 };
 
-const staticPages: SitemapEntry[] = [
-  { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
-  { url: `${baseUrl}/analizy`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
-  { url: `${baseUrl}/uzi`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
-  { url: `${baseUrl}/vraci`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-  { url: `${baseUrl}/vyezd-vracha`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-  { url: `${baseUrl}/medsestra`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-  { url: `${baseUrl}/filialy`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-  { url: `${baseUrl}/akcii`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.6 },
-  { url: `${baseUrl}/contacts`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-  { url: `${baseUrl}/stacionar`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+/** Статические посадочные страницы: главная, услуги, гео, контакты. Порядок и приоритет — под обход и SEO. */
+const staticEntries: SitemapEntry[] = [
+  { url: `${BASE}/`, changeFrequency: "weekly", priority: 1.0 },
+  { url: `${BASE}/analizy`, changeFrequency: "weekly", priority: 0.9 },
+  { url: `${BASE}/uzi`, changeFrequency: "weekly", priority: 0.9 },
+  { url: `${BASE}/vraci`, changeFrequency: "weekly", priority: 0.8 },
+  { url: `${BASE}/vyezd-vracha`, changeFrequency: "monthly", priority: 0.8 },
+  { url: `${BASE}/medsestra`, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${BASE}/filialy`, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${BASE}/akcii`, changeFrequency: "weekly", priority: 0.6 },
+  { url: `${BASE}/contacts`, changeFrequency: "monthly", priority: 0.6 },
+  { url: `${BASE}/stacionar`, changeFrequency: "monthly", priority: 0.5 },
 ];
 
-function getAnalysisPages(): SitemapEntry[] {
+function getAnalysisEntries(): SitemapEntry[] {
   try {
     const list = Array.isArray(analysesData) ? analysesData : [];
     return list
-      .filter((item: { slug?: string }) => item != null && typeof item?.slug === "string" && item.slug.length > 0)
+      .filter((item: { slug?: string }) => item != null && typeof item?.slug === "string" && item.slug.trim().length > 0)
+      .slice(0, MAX_URLS - staticEntries.length)
       .map((item: { slug: string }) => ({
-        url: `${baseUrl}/analizy/${item.slug}`,
-        lastModified: new Date(),
+        url: `${BASE}/analizy/${item.slug}`,
         changeFrequency: "monthly" as const,
         priority: 0.6,
       }));
@@ -43,11 +49,18 @@ function getAnalysisPages(): SitemapEntry[] {
   }
 }
 
+/** Возвращает список URL для Sitemap: только канонические, без www, без дублей, не более 50 000. */
 export default function getSitemapEntries(): SitemapEntry[] {
-  try {
-    const analysisPages = getAnalysisPages();
-    return [...staticPages, ...analysisPages];
-  } catch {
-    return staticPages;
+  const analysis = getAnalysisEntries();
+  const combined = [...staticEntries, ...analysis];
+  const seen = new Set<string>();
+  const out: SitemapEntry[] = [];
+  for (const e of combined) {
+    const u = e.url.trim();
+    if (!u.startsWith(BASE) || u.includes("www.")) continue;
+    if (seen.has(u)) continue;
+    seen.add(u);
+    out.push(e);
   }
+  return out;
 }

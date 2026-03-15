@@ -53,7 +53,14 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang="ru">
       <head>
-        <link rel="alternate" href="https://liteh26.ru/" />
+        <link
+          rel="canonical"
+          href={
+            !pathname || pathname === "/"
+              ? CANONICAL_BASE + "/"
+              : CANONICAL_BASE + (pathname.startsWith("/") ? pathname : "/" + pathname)
+          }
+        />
         <SchemaMarkup pathname={pathname} />
       </head>
       <body className={`${inter.className} min-h-screen text-slate-900 antialiased`}>
