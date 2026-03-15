@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/webp", "image/avif"],
+    deviceSizes: [384, 640, 750, 828, 1080, 1200, 1920, 2048],
     remotePatterns: [
       { protocol: "https", hostname: "prodoctorov.ru", pathname: "/upload/**" },
       { protocol: "https", hostname: "amadeyakids.ru", pathname: "/**" },

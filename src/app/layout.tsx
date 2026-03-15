@@ -159,7 +159,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             </div>
           </footer>
 
-          <div className="fixed bottom-24 right-4 z-40 flex flex-col gap-3 md:bottom-6">
+          <div className="fixed bottom-[calc(6rem+env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] z-40 flex flex-col gap-3 md:bottom-[calc(1.5rem+env(safe-area-inset-bottom))] md:right-[max(1.5rem,env(safe-area-inset-right))]">
             <a
               href={`tel:${MAIN_PHONE}`}
               className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 transition-all duration-200 ease-out hover:-translate-y-[1px] hover:bg-emerald-600 hover:shadow-[0_10px_25px_rgba(0,0,0,0.15)]"

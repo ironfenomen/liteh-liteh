@@ -22,7 +22,7 @@ export default function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-emerald-100 bg-white shadow-[0_-4px_12px_rgba(15,23,42,0.05)] md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-[60] border-t border-emerald-100 bg-white pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_12px_rgba(15,23,42,0.05)] md:hidden">
       <div className="grid w-full grid-cols-5">
         {items.map(({ href, label, Icon }) => {
           const active = pathname === href;
@@ -35,7 +35,7 @@ export default function BottomNav() {
             <Link
               key={href}
               href={href}
-              className="flex flex-col items-center justify-center gap-1 py-3"
+              className="flex min-h-[48px] flex-col items-center justify-center gap-1 py-3"
             >
               <Icon
                 size={28}
@@ -44,7 +44,7 @@ export default function BottomNav() {
                 aria-hidden="true"
               />
               <span
-                className={`px-0.5 text-[9px] leading-tight text-center ${textColor}`}
+                className={`px-0.5 text-[10px] leading-tight text-center ${textColor}`}
               >
                 {label}
               </span>

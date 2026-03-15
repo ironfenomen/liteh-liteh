@@ -87,12 +87,12 @@ export default function Header() {
           scrolled ? "shadow-md shadow-slate-200/50" : ""
         }`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:py-4">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:gap-4 md:py-4">
           <Link
             href="/"
             onClick={handleLogoClick}
             title="Литех — главная страница: анализы и УЗИ в Ставрополе"
-            className="flex shrink-0 items-center gap-4"
+            className="flex shrink-0 items-center gap-2 sm:gap-4"
           >
             <Image
               src="/liteh-logo.svg"
@@ -100,6 +100,7 @@ export default function Header() {
               width={140}
               height={44}
               priority
+              sizes="(max-width: 640px) 120px, 140px"
               className="h-11 w-auto shrink-0"
             />
             <span className="hidden text-xs font-medium text-slate-600 sm:inline">
@@ -109,7 +110,7 @@ export default function Header() {
 
           <a
             href={TEL_HREF}
-            className="text-[13px] font-medium text-slate-800 md:hidden whitespace-nowrap"
+            className="min-w-0 shrink text-[13px] font-medium text-slate-800 md:hidden"
           >
             +7 988 865-27-77
           </a>
@@ -132,7 +133,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setDrawerOpen(true)}
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50 md:hidden"
+              className="flex h-11 w-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50 md:hidden"
               aria-label="Открыть меню"
             >
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -167,6 +168,7 @@ export default function Header() {
                 alt="Литех"
                 width={110}
                 height={32}
+                sizes="110px"
                 className="h-7 w-auto"
               />
             </div>
@@ -266,14 +268,14 @@ export default function Header() {
                 <input
                   type="text"
                   placeholder="Как к вам обращаться"
-                  className="h-9 w-full rounded-lg border border-slate-200 bg-slate-50 px-3 text-xs outline-none ring-0 placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white"
+                  className="h-11 min-h-[44px] w-full rounded-lg border border-slate-200 bg-slate-50 px-3 text-xs outline-none ring-0 placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white"
                   value={cbName}
                   onChange={(e) => setCbName(e.target.value)}
                 />
                 <input
                   type="tel"
                   placeholder="Телефон"
-                  className="h-9 w-full rounded-lg border border-slate-200 bg-slate-50 px-3 text-xs outline-none ring-0 placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white"
+                  className="h-11 min-h-[44px] w-full rounded-lg border border-slate-200 bg-slate-50 px-3 text-xs outline-none ring-0 placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white"
                   value={cbPhone}
                   onChange={(e) => setCbPhone(e.target.value)}
                   required
@@ -281,7 +283,7 @@ export default function Header() {
                 <button
                   type="submit"
                   disabled={cbSubmitting}
-                  className="flex h-9 w-full items-center justify-center rounded-lg bg-emerald-500 text-[12px] font-semibold text-white shadow-sm transition hover:bg-emerald-600 disabled:opacity-70"
+                  className="flex h-11 min-h-[44px] w-full items-center justify-center rounded-lg bg-emerald-500 text-[12px] font-semibold text-white shadow-sm transition hover:bg-emerald-600 disabled:opacity-70"
                 >
                   {cbSubmitting ? "Отправляем..." : "Отправить заявку"}
                 </button>

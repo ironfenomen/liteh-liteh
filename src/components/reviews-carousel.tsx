@@ -112,7 +112,7 @@ export default function ReviewsCarousel() {
           type="button"
           onClick={scrollPrev}
           aria-label="Предыдущие отзывы"
-          className="absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 -translate-x-1 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-emerald-200 hover:bg-white hover:text-emerald-700 disabled:opacity-40 md:-translate-x-2"
+          className="absolute left-0 top-1/2 z-10 flex h-11 w-11 min-h-[44px] min-w-[44px] -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-emerald-200 hover:bg-white hover:text-emerald-700 disabled:opacity-40 md:-translate-x-2"
           disabled={!canPrev}
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -123,7 +123,7 @@ export default function ReviewsCarousel() {
           type="button"
           onClick={scrollNext}
           aria-label="Следующие отзывы"
-          className="absolute right-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 translate-x-1 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-emerald-200 hover:bg-white hover:text-emerald-700 disabled:opacity-40 md:translate-x-2"
+          className="absolute right-0 top-1/2 z-10 flex h-11 w-11 min-h-[44px] min-w-[44px] -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-emerald-200 hover:bg-white hover:text-emerald-700 disabled:opacity-40 md:translate-x-2"
           disabled={!canNext}
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -86,7 +86,7 @@ export default function CartPage() {
       ) : (
         <>
           <section className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100">
-            <div className="grid grid-cols-[minmax(0,2.2fr),minmax(0,1fr),minmax(0,0.7fr),minmax(0,0.5fr)] border-b border-slate-100 bg-slate-50 px-4 py-3 text-[11px] font-medium uppercase tracking-wide text-slate-500">
+            <div className="hidden border-b border-slate-100 bg-slate-50 px-4 py-3 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:grid sm:grid-cols-[minmax(0,2.2fr),minmax(0,1fr),minmax(0,0.7fr),minmax(0,0.5fr)]">
               <span>Наименование</span>
               <span>Тип</span>
               <span className="text-right">Стоимость</span>
@@ -96,28 +96,28 @@ export default function CartPage() {
               {items.map((item) => (
                 <div
                   key={item.id}
-                  className="grid grid-cols-[minmax(0,2.2fr),minmax(0,1fr),minmax(0,0.7fr),minmax(0,0.5fr)] items-center px-4 py-3"
+                  className="flex flex-col gap-2 px-4 py-3 sm:grid sm:grid-cols-[minmax(0,2.2fr),minmax(0,1fr),minmax(0,0.7fr),minmax(0,0.5fr)] sm:items-center"
                 >
-                  <div className="space-y-0.5 pr-3">
-                    <p className="text-slate-900">{item.name}</p>
+                  <div className="space-y-0.5 pr-3 min-w-0">
+                    <p className="text-slate-900 break-words">{item.name}</p>
                     {item.code && (
                       <p className="font-mono text-[11px] text-slate-500">
                         Код: {item.code}
                       </p>
                     )}
                   </div>
-                  <span className="text-slate-500">
+                  <span className="text-slate-500 sm:block">
                     {item.type === "analyze" ? "Анализ" : "УЗИ"}
                   </span>
-                  <span className="text-right font-semibold text-slate-900">
+                  <span className="font-semibold text-slate-900 sm:text-right">
                     {item.price} ₽
                   </span>
-                  <div className="flex items-center justify-end gap-2">
-                    <span className="text-slate-700">{item.quantity}</span>
+                  <div className="flex items-center justify-between gap-2 sm:justify-end">
+                    <span className="text-slate-700">× {item.quantity}</span>
                     <button
                       type="button"
                       onClick={() => removeItem(item.id)}
-                      className="text-[11px] font-medium text-slate-400 hover:text-rose-500"
+                      className="min-h-[44px] min-w-[44px] shrink-0 rounded-lg text-[11px] font-medium text-slate-400 hover:bg-slate-50 hover:text-rose-500 sm:min-h-0 sm:min-w-0"
                     >
                       Удалить
                     </button>

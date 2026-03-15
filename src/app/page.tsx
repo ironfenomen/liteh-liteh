@@ -355,37 +355,37 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-3 text-xs">
                 <Link
                   href="/analizy"
-                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center"
+                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center break-words"
                 >
                   Лабораторная диагностика
                 </Link>
                 <Link
                   href="/uzi"
-                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center"
+                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center break-words"
                 >
                   УЗИ диагностика
                 </Link>
                 <Link
                   href="/vraci"
-                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center"
+                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center break-words"
                 >
                   Прием врачей
                 </Link>
                 <Link
                   href="/vyezd-vracha"
-                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center"
+                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center break-words"
                 >
                   Выезд врача на дом
                 </Link>
                 <Link
                   href="/medsestra"
-                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center"
+                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center break-words"
                 >
                   Медсестринская помощь
                 </Link>
                 <Link
                   href="/stacionar"
-                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center"
+                  className="rounded-[14px] border border-[#e8f0ee] bg-[#f7fbfa] px-[18px] py-[14px] text-[13px] font-medium text-emerald-900 shadow-sm transition-all duration-200 ease-out hover:bg-white hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] text-center break-words"
                 >
                   Стационарное лечение
                 </Link>
