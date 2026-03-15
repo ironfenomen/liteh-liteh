@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://liteh26.ru/sitemap.xml
+Host: liteh26.ru
