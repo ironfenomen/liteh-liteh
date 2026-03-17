@@ -323,7 +323,7 @@ export default function AnalizyPage() {
                               <button
                                 type="button"
                                 onClick={() => openBooking(item)}
-                                className="rounded-xl bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-emerald-600 md:py-2 md:px-4"
+                                className="rounded-xl bg-emerald-700 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-emerald-800 md:py-2 md:px-4"
                               >
                                 Записаться
                               </button>
@@ -404,7 +404,7 @@ export default function AnalizyPage() {
                   <button
                     type="submit"
                     disabled={bookSubmitting}
-                    className="flex-1 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-600 disabled:opacity-50"
+                    className="flex-1 rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800 disabled:opacity-50"
                   >
                     {bookSubmitting ? "Отправка…" : "Отправить заявку"}
                   </button>

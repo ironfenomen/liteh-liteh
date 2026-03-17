@@ -347,7 +347,7 @@ export default function Home() {
               <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm">
                 <Link
                   href="/contacts#callback"
-                  className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-6 py-2 text-[13px] font-semibold text-white shadow-sm transition hover:bg-emerald-600"
+                  className="inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-2 text-[13px] font-semibold text-white shadow-sm transition hover:bg-emerald-800"
                 >
                   Записаться онлайн
                 </Link>
@@ -540,7 +540,7 @@ export default function Home() {
               </p>
               <a
                 href="tel:+79888652777"
-                className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl bg-emerald-600 py-2.5 text-[13px] font-semibold text-white shadow-sm transition hover:bg-emerald-600 md:w-auto md:px-4"
+                className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl bg-emerald-700 py-2.5 text-[13px] font-semibold text-white shadow-sm transition hover:bg-emerald-800 md:w-auto md:px-4"
               >
                 Позвонить
               </a>
@@ -565,7 +565,7 @@ export default function Home() {
               </p>
               <a
                 href="tel:+79888652777"
-                className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl bg-emerald-600 py-2.5 text-[13px] font-semibold text-white shadow-sm transition hover:bg-emerald-600 md:w-auto md:px-4"
+                className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl bg-emerald-700 py-2.5 text-[13px] font-semibold text-white shadow-sm transition hover:bg-emerald-800 md:w-auto md:px-4"
               >
                 Позвонить
               </a>
@@ -591,7 +591,7 @@ export default function Home() {
               </p>
               <a
                 href="tel:+79888652777"
-                className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl bg-emerald-600 py-2.5 text-[13px] font-semibold text-white shadow-sm transition hover:bg-emerald-600 md:w-auto md:px-4"
+                className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl bg-emerald-700 py-2.5 text-[13px] font-semibold text-white shadow-sm transition hover:bg-emerald-800 md:w-auto md:px-4"
               >
                 Позвонить
               </a>
@@ -676,7 +676,7 @@ export default function Home() {
           <div className="mt-4 flex flex-col items-center justify-center gap-3 text-xs md:flex-row">
             <Link
               href="/contacts#callback"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-6 py-2 font-semibold text-white shadow-sm transition hover:bg-emerald-600"
+              className="inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-2 font-semibold text-white shadow-sm transition hover:bg-emerald-800"
             >
               Перезвоните мне
             </Link>

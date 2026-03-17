@@ -45,6 +45,7 @@ const MAIN_PHONE = "+7 988 865-27-77";
 const TELEGRAM = "@amadeyastav";
 const WHATSAPP = "+7 988 865-27-77";
 
+// display: "swap" — шрифт не блокирует отрисовку; next/font сам добавляет preload для woff2
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700"],
@@ -173,7 +174,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <div className="fixed bottom-[calc(6rem+env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] z-40 flex flex-col gap-3 md:bottom-[calc(1.5rem+env(safe-area-inset-bottom))] md:right-[max(1.5rem,env(safe-area-inset-right))]">
             <a
               href={`tel:${MAIN_PHONE}`}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 transition-all duration-200 ease-out hover:-translate-y-[1px] hover:bg-emerald-600 hover:shadow-[0_10px_25px_rgba(0,0,0,0.15)]"
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-700 text-white shadow-lg shadow-emerald-700/30 transition-all duration-200 ease-out hover:-translate-y-[1px] hover:bg-emerald-800 hover:shadow-[0_10px_25px_rgba(0,0,0,0.15)]"
               aria-label="Позвонить"
             >
               <svg
@@ -209,7 +210,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               href={`https://wa.me/${WHATSAPP.replace(/[^0-9]/g, "")}`}
               target="_blank"
               rel="noreferrer"
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 transition-all duration-200 ease-out hover:-translate-y-[1px] hover:bg-emerald-600 hover:shadow-[0_10px_25px_rgba(0,0,0,0.15)]"
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-700 text-white shadow-lg shadow-emerald-700/30 transition-all duration-200 ease-out hover:-translate-y-[1px] hover:bg-emerald-800 hover:shadow-[0_10px_25px_rgba(0,0,0,0.15)]"
               aria-label="Написать в WhatsApp"
             >
               <svg
