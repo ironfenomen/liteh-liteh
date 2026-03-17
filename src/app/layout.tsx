@@ -111,7 +111,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
                     key={href}
                     href={href}
                     title={title}
-                    className="hover:text-emerald-600 hover:underline"
+                    className="py-1 hover:text-emerald-600 hover:underline"
                   >
                     {label}
                   </Link>
@@ -130,10 +130,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
                   здравоохранения Ставропольского края.
                 </p>
                 <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
-                  <Link href="/privacy-policy" className="text-emerald-700 hover:underline">
+                  <Link href="/privacy-policy" className="py-1 text-emerald-700 hover:underline">
                     Политика обработки персональных данных
                   </Link>
-                  <Link href="/privacy-accept" className="text-emerald-700 hover:underline">
+                  <Link href="/privacy-accept" className="py-1 text-emerald-700 hover:underline">
                     Согласие на обработку персональных данных
                   </Link>
                 </p>
@@ -146,7 +146,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
                   href="https://amadeya26.ru"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-emerald-700 hover:underline"
+                  className="py-1 text-emerald-700 hover:underline"
                 >
                   Амадея
                 </a>
@@ -154,7 +154,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
                   href="https://www.amadeyadetox26.ru"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-emerald-700 hover:underline"
+                  className="py-1 text-emerald-700 hover:underline"
                 >
                   Амадея Детокс
                 </a>
@@ -162,7 +162,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
                   href="https://amadeyakids.ru"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-emerald-700 hover:underline"
+                  className="py-1 text-emerald-700 hover:underline"
                 >
                   Амадея Kids
                 </a>

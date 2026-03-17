@@ -124,7 +124,7 @@ export default function VraciPage() {
                   <span className="text-[13px] font-semibold">
                     Полный перечень специалистов
                   </span>
-                  <span className="text-xs text-slate-400">
+                  <span className="text-xs text-slate-500">
                     {showFullList ? "Свернуть" : "Показать"}
                   </span>
                 </button>

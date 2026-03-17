@@ -36,7 +36,7 @@ function ReviewCard({ item }: { item: Review }) {
     <div className="flex h-full flex-col rounded-2xl border border-[#e8f0ee] bg-white p-4 shadow-sm ring-1 ring-slate-100 transition-all duration-[0.25s] ease-out hover:shadow-lg hover:ring-emerald-100 md:p-5">
       <div className="flex items-start justify-between gap-2">
         <ReviewTypeBadge type={item.type} />
-        <span className="text-[11px] font-medium text-slate-400">{item.date}</span>
+        <span className="text-[11px] font-medium text-slate-500">{item.date}</span>
       </div>
       <div className="mt-2">
         <StarsFive />
@@ -50,7 +50,7 @@ function ReviewCard({ item }: { item: Review }) {
           href={item.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[10px] text-slate-400 underline decoration-slate-300 transition hover:text-emerald-600 hover:decoration-emerald-400"
+          className="text-[10px] text-slate-500 underline decoration-slate-300 transition hover:text-emerald-600 hover:decoration-emerald-400"
         >
           Отзыв на ПроДокторов
         </Link>

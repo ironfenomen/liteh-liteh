@@ -73,7 +73,7 @@ export default function AnalysisBookingForm({ analysisName }: Props) {
       <button
         type="submit"
         disabled={submitting}
-        className="h-10 rounded-lg bg-emerald-500 px-4 text-sm font-semibold text-white transition hover:bg-emerald-600 disabled:opacity-70"
+        className="h-10 rounded-lg bg-emerald-600 px-4 text-sm font-semibold text-white transition hover:bg-emerald-600 disabled:opacity-70"
       >
         {submitting ? "Отправка…" : "Записаться"}
       </button>

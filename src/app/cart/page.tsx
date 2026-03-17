@@ -117,7 +117,7 @@ export default function CartPage() {
                     <button
                       type="button"
                       onClick={() => removeItem(item.id)}
-                      className="min-h-[44px] min-w-[44px] shrink-0 rounded-lg text-[11px] font-medium text-slate-400 hover:bg-slate-50 hover:text-rose-500 sm:min-h-0 sm:min-w-0"
+                      className="min-h-[44px] min-w-[44px] shrink-0 rounded-lg text-[11px] font-medium text-slate-500 hover:bg-slate-50 hover:text-rose-500 sm:min-h-0 sm:min-w-0"
                     >
                       Удалить
                     </button>
@@ -129,7 +129,7 @@ export default function CartPage() {
               <button
                 type="button"
                 onClick={clear}
-                className="text-[11px] font-medium text-slate-400 hover:text-rose-500"
+                className="text-[11px] font-medium text-slate-500 hover:text-rose-500"
               >
                 Очистить корзину
               </button>

@@ -52,7 +52,7 @@ function PromoCard({ item }: { item: Promotion }) {
           </p>
         </div>
       </div>
-      <span className="mt-3 inline-flex w-fit items-center justify-center rounded-xl bg-emerald-500 px-4 py-2 text-[12px] font-semibold text-white shadow-sm transition-all duration-200 ease-out group-hover:scale-105 group-hover:bg-emerald-600">
+      <span className="mt-3 inline-flex w-fit items-center justify-center rounded-xl bg-emerald-600 px-4 py-2 text-[12px] font-semibold text-white shadow-sm transition-all duration-200 ease-out group-hover:scale-105 group-hover:bg-emerald-600">
         {item.cta}
       </span>
     </Link>

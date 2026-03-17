@@ -126,7 +126,7 @@ export default function Header() {
             </div>
             <a
               href={TEL_HREF}
-              className="hidden items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-emerald-600 md:inline-flex md:text-sm"
+              className="hidden items-center justify-center rounded-full bg-emerald-600 px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-emerald-600 md:inline-flex md:text-sm"
             >
               Позвонить
             </a>
@@ -214,7 +214,7 @@ export default function Header() {
                 href={`https://wa.me/${WHATSAPP.replace(/[^0-9]/g, "")}`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500 text-white shadow-sm transition hover:bg-emerald-600"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600 text-white shadow-sm transition hover:bg-emerald-600"
                 aria-label="Написать в WhatsApp"
               >
                 <svg
