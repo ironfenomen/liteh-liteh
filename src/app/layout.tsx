@@ -50,6 +50,7 @@ const inter = Inter({
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
+  preload: true,
 });
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
@@ -66,12 +67,17 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               : CANONICAL_BASE + (pathname.startsWith("/") ? pathname : "/" + pathname)
           }
         />
-        <link
-          rel="preload"
-          href="/_next/static/media/1bffadaabf893a1e-s.7cd81963.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
+        {/* Критический CSS для Hero (LCP) — гарантирует быстрый FCP без ожидания основного CSS */}
+        <style
+          id="critical-css"
+          dangerouslySetInnerHTML={{
+            __html: `
+.hero-title{margin-left:auto;margin-right:auto;max-width:100%;font-size:1.5rem;font-weight:600;line-height:1.25;letter-spacing:-0.025em;color:#0f172a;overflow-wrap:break-word}
+.hero-desc{margin-left:auto;margin-right:auto;max-width:100%;font-size:0.875rem;line-height:1.625;color:#475569;overflow-wrap:break-word}
+@media(min-width:640px){.hero-title{font-size:1.875rem}}
+@media(min-width:768px){.hero-title{font-size:2.25rem}.hero-desc{max-width:36rem;font-size:1rem}}
+`,
+          }}
         />
         <SchemaMarkup pathname={pathname} />
       </head>

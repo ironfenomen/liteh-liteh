@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "browserslist": [
-    "last 2 Chrome versions",
-    "last 2 Firefox versions",
-    "last 2 Safari versions",
-    "last 2 Edge versions"
+    "chrome >= 90",
+    "firefox >= 90",
+    "safari >= 14",
+    "edge >= 90"
   ],
   "scripts": {
     "dev": "next dev",

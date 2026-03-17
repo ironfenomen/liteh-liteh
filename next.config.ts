@@ -5,7 +5,11 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 const nextConfig: NextConfig = {
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
   experimental: {
+    optimizeCss: true,
     optimizePackageImports: ["lucide-react"],
   },
   images: {
