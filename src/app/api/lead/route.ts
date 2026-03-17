@@ -1,7 +1,6 @@
 import nodemailer from "nodemailer";
 import { NextRequest, NextResponse } from "next/server";
-
-const TELEGRAM_API = "https://api.telegram.org";
+import { sendTelegramMessage } from "@/lib/telegram";
 
 export type LeadBody = {
   formName: string;
@@ -39,30 +38,6 @@ function buildTelegramMessage(body: LeadBody): string {
   lines.push(`Дата: ${dateTime}`);
 
   return lines.join("\n");
-}
-
-async function sendToTelegram(text: string): Promise<boolean> {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
-  if (!token || !chatId) return false;
-
-  const url = `${TELEGRAM_API}/bot${token}/sendMessage`;
-  const res = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text,
-      disable_web_page_preview: true,
-    }),
-  });
-
-  if (!res.ok) {
-    const err = await res.text();
-    console.error("Telegram sendMessage error:", res.status, err);
-    return false;
-  }
-  return true;
 }
 
 async function sendToEmail(body: LeadBody): Promise<boolean> {
@@ -129,7 +104,12 @@ export async function POST(req: NextRequest) {
     };
 
     const text = buildTelegramMessage(payload);
-    const telegramOk = await sendToTelegram(text);
+    const telegramResult = await sendTelegramMessage(text);
+    const telegramOk = telegramResult.ok;
+    console.log(
+      "[lead] telegram result",
+      JSON.stringify(telegramResult),
+    );
     if (!telegramOk && process.env.TELEGRAM_BOT_TOKEN) {
       console.error("Lead: Telegram delivery failed");
     }
