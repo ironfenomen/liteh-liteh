@@ -4,8 +4,8 @@ import "./globals.css";
 import Link from "next/link";
 import { ReactNode } from "react";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import { CartProvider } from "../components/cart-provider";
+import YandexMetrika from "../components/yandex-metrika";
 import CookieConsentBanner from "../components/cookie-consent-banner";
 import Header from "../components/header";
 import BottomNav from "../components/bottom-nav";
@@ -58,9 +58,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang="ru">
       <head>
-        <link rel="preconnect" href="https://mc.yandex.ru" />
-        <link rel="preconnect" href="https://mc.yandex.com" />
-        <link rel="dns-prefetch" href="https://mc.yandex.ru" />
         <link
           rel="canonical"
           href={
@@ -79,29 +76,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <SchemaMarkup pathname={pathname} />
       </head>
       <body className={`${inter.className} min-h-screen text-slate-900 antialiased`}>
-        <Script
-          src="https://mc.yandex.ru/metrika/tag.js"
-          strategy="lazyOnload"
-        />
-        <Script id="yandex-metrika-init" strategy="lazyOnload">
-          {`
-            (function(m,e,t,r,i,k,a){
-              m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-              m[i].l=1*new Date();
-              k=e.createElement(t),a=e.getElementsByTagName(t)[0];
-              k.async=1;k.src=r;a.parentNode.insertBefore(k,a);
-            })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-            ym(107271236, "init", {
-              clickmap: true,
-              trackLinks: true,
-              accurateTrackBounce: true,
-              webvisor: true,
-              triggerEvent: true,
-              phoneHash: true
-            });
-          `}
-        </Script>
+        <YandexMetrika />
         <CartProvider>
           <div className="flex min-h-screen flex-col">
             <Header />

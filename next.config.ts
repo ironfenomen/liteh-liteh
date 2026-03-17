@@ -1,8 +1,12 @@
 import type { NextConfig } from "next";
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
 
 const nextConfig: NextConfig = {
   experimental: {
-    optimizeCss: true,
+    optimizePackageImports: ["lucide-react"],
   },
   images: {
     formats: ["image/webp", "image/avif"],
@@ -82,4 +86,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);
