@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // .browserslistrc в корне — для инструментов (Autoprefixer и др.); Next.js 16 не поддерживает experimental.browsersListForSwc
+  experimental: {
+    optimizeCss: true,
+  },
   images: {
     formats: ["image/webp", "image/avif"],
     deviceSizes: [384, 640, 750, 828, 1080, 1200, 1920, 2048],
