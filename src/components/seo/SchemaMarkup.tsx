@@ -220,6 +220,7 @@ export type PhysicianData = {
   specialties: string[];
   experience?: string | null;
   url?: string;
+  image?: string | null;
 };
 
 function PhysicianSchema({ physician }: { physician: PhysicianData }) {
@@ -228,8 +229,24 @@ function PhysicianSchema({ physician }: { physician: PhysicianData }) {
     "@type": "Physician",
     name: physician.name,
     jobTitle: physician.specialties.length > 0 ? physician.specialties.join(", ") : "Врач",
-    ...(physician.experience && { knowsAbout: physician.experience }),
-    worksFor: { "@id": `${BASE_URL}/#clinic` },
+    medicalSpecialty: physician.specialties.length > 0 ? physician.specialties[0] : "Медицина",
+    ...(physician.experience && { description: `Стаж: ${physician.experience}` }),
+    worksFor: {
+      "@id": `${BASE_URL}/#clinic`,
+      "@type": "MedicalClinic",
+      name: "Литех",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Ставрополь",
+      addressRegion: "Ставропольский край",
+      addressCountry: "RU",
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Ставрополь",
+    },
+    ...(physician.image && { image: physician.image }),
     ...(physician.url && { url: physician.url }),
   };
   return <JsonLdScript data={schema} />;
