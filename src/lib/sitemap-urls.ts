@@ -5,12 +5,11 @@
  * В Sitemap попадают только индексируемые канонические страницы (200 OK, без noindex).
  * Исключены: cart, privacy-policy, privacy-accept, api, служебные и нецелевые страницы.
  */
-import analysesData from "@/data/analyses.json";
+import { DOCTORS } from "@/data/doctors";
+import { getIndexableAnalyses } from "@/lib/analysis-seo";
 
 /** Канонический домен без www. Все <loc> только с этим хостом. */
 const BASE = "https://liteh26.ru";
-
-const MAX_URLS = 50000;
 
 export type SitemapEntry = {
   url: string;
@@ -33,26 +32,21 @@ const staticEntries: SitemapEntry[] = [
   { url: `${BASE}/stacionar`, changeFrequency: "monthly", priority: 0.5 },
 ];
 
-function getAnalysisEntries(): SitemapEntry[] {
-  try {
-    const list = Array.isArray(analysesData) ? analysesData : [];
-    return list
-      .filter((item: { slug?: string }) => item != null && typeof item?.slug === "string" && item.slug.trim().length > 0)
-      .slice(0, MAX_URLS - staticEntries.length)
-      .map((item: { slug: string }) => ({
-        url: `${BASE}/analizy/${item.slug}`,
-        changeFrequency: "monthly" as const,
-        priority: 0.6,
-      }));
-  } catch {
-    return [];
-  }
-}
+const analysisEntries: SitemapEntry[] = getIndexableAnalyses().map((entry) => ({
+  url: `${BASE}/analizy/${entry.canonicalSlug}`,
+  changeFrequency: "monthly",
+  priority: 0.7,
+}));
+
+const doctorEntries: SitemapEntry[] = DOCTORS.map((doctor) => ({
+  url: `${BASE}/vraci/${doctor.id}`,
+  changeFrequency: "monthly",
+  priority: 0.7,
+}));
 
 /** Возвращает список URL для Sitemap: только канонические, без www, без дублей, не более 50 000. */
 export default function getSitemapEntries(): SitemapEntry[] {
-  const analysis = getAnalysisEntries();
-  const combined = [...staticEntries, ...analysis];
+  const combined = [...staticEntries, ...doctorEntries, ...analysisEntries];
   const seen = new Set<string>();
   const out: SitemapEntry[] = [];
   for (const e of combined) {

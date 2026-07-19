@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { DOCTORS } from "../../data/doctors";
 import SchemaMarkup from "../../components/seo/SchemaMarkup";
 
@@ -50,17 +51,21 @@ function VraciListSchema() {
   );
 }
 
-export default function VraciLayout({
+export default async function VraciLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const headersList = await headers();
+  const pathname = (headersList.get("x-pathname") ?? "/vraci").replace(/\/$/, "") || "/";
+  if (pathname !== "/vraci") return children;
+
   const physicians = DOCTORS.map((d) => ({
     id: d.id,
     name: d.name,
     specialties: d.specialties,
     experience: d.experience,
-    url: d.bookingUrl ?? undefined,
+    url: `${BASE_URL}/vraci/${d.id}`,
     image: d.photo ?? undefined,
   }));
   return (

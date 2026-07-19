@@ -77,7 +77,9 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
           </div>
           <div className="min-w-0 flex-1">
             <h2 className="text-base font-semibold leading-tight text-slate-900 md:text-lg">
-              {doctor.name}
+              <Link href={`/vraci/${doctor.id}`} className="hover:text-emerald-700 hover:underline">
+                {doctor.name}
+              </Link>
             </h2>
             {doctor.specialties.length > 0 && (
               <p className="mt-1 text-[13px] text-slate-600 line-clamp-2">
@@ -121,7 +123,13 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
           </p>
         )}
 
-        <div className="mt-auto pt-4">
+        <div className="mt-auto grid gap-2 pt-4">
+          <Link
+            href={`/vraci/${doctor.id}`}
+            className="inline-flex w-full items-center justify-center rounded-xl border border-emerald-200 bg-white px-4 py-2 text-[13px] font-semibold text-emerald-700 transition hover:bg-emerald-50"
+          >
+            Подробнее о враче
+          </Link>
           {hasBooking ? (
             <a
               href={doctor.bookingUrl!}

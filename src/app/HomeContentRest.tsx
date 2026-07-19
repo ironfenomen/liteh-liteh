@@ -3,6 +3,7 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import analysesData from "@/data/analyses.json";
+import { getCanonicalAnalysisSlug } from "@/lib/analysis-seo";
 
 const analysesList = (analysesData as { code?: string; name: string; slug?: string; price?: number | null }[]).slice(0, 6);
 const popularAnalyzes = analysesList.slice(0, 6);
@@ -77,7 +78,7 @@ export function HomeContentRest() {
           {popularAnalyzes.map((item) => (
             <Link
               key={item.code}
-              href={`/analizy/${item.slug}`}
+              href={`/analizy/${getCanonicalAnalysisSlug({ code: item.code ?? "", slug: item.slug ?? "" })}`}
               className="flex flex-col rounded-2xl bg-white p-3 text-xs shadow-sm ring-1 ring-slate-100 transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <span className="text-[11px] font-medium uppercase tracking-wide text-slate-500">
