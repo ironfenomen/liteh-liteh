@@ -6,6 +6,7 @@
  * Сохраняет результат в src/data/analyses-raw.json
  */
 
+/* eslint-disable @typescript-eslint/no-require-imports */
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");

@@ -1,118 +1,95 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import analyzes from "../../../data/analyses.json";
-import SchemaMarkup from "../../../components/seo/SchemaMarkup";
+import { notFound, permanentRedirect } from "next/navigation";
+import SchemaMarkup from "@/components/seo/SchemaMarkup";
+import { resolveAnalysis } from "@/lib/analysis-seo";
 
-// Не пререндерить все slug — часть путей слишком длинные для файловой системы
 export const dynamic = "force-dynamic";
 
-type Analyze = {
-  code: string;
-  name: string;
-  slug: string;
-  category?: string;
-  price?: number;
-  description?: string;
-  preparation?: string;
-};
-
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-export function generateMetadata({ params }: Props): Metadata {
-  const item = (analyzes as Analyze[]).find(
-    (a) => a.slug === params.slug,
-  ) as Analyze | undefined;
+const BASE_URL = "https://liteh26.ru";
 
-  const title = item
-    ? `Сдать ${item.name} — цена в Ставрополе | Лаборатория Литех`
-    : "Сдать анализ в Ставрополе — лаборатория «Литех»";
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const resolved = resolveAnalysis(slug);
+  if (!resolved) {
+    return { title: "Анализ не найден | Литех", robots: { index: false, follow: false } };
+  }
 
-  const description = item
-    ? `Сдать анализ «${item.name}» (код ${item.code}) в Ставрополе в лаборатории «Литех»${item.price != null ? `. Цена от ${item.price} ₽` : ""}. Подготовка, сроки результатов и стоимость исследования.`
-    : "Подробная информация об анализе в лаборатории «Литех» в Ставрополе.";
+  const { item, seo, canonicalSlug, indexable } = resolved;
+  const title = `Сдать ${seo?.title ?? item.name} — цена в Ставрополе | Литех`;
+  const description = seo
+    ? `${seo.description} Стоимость: ${item.price != null ? `${item.price} ₽` : "уточняется"}. Сдать анализ в лаборатории «Литех» в Ставрополе.`
+    : `Анализ «${item.name}», код ${item.code}. Актуальную стоимость и подготовку уточняйте в лаборатории «Литех» в Ставрополе.`;
 
   return {
     title,
     description,
+    alternates: { canonical: `/analizy/${canonicalSlug}` },
+    robots: indexable ? { index: true, follow: true } : { index: false, follow: true },
     openGraph: {
       title,
       description,
       type: "article",
       locale: "ru_RU",
+      url: `${BASE_URL}/analizy/${canonicalSlug}`,
     },
   };
 }
 
-export default function AnalyzePage({ params }: Props) {
-  const item = (analyzes as Analyze[]).find(
-    (a) => a.slug === params.slug,
-  ) as Analyze | undefined;
+export default async function AnalyzePage({ params }: Props) {
+  const { slug } = await params;
+  const resolved = resolveAnalysis(slug);
+  if (!resolved) notFound();
 
-  if (!item) {
-    return (
-      <div className="space-y-4">
-        <h1 className="text-2xl font-semibold text-slate-900">
-          Анализ не найден
-        </h1>
-        <p className="text-sm text-slate-600">
-          Возможно, анализ был удалён или его код изменился. Попробуйте найти
-          нужное исследование в общем каталоге.
-        </p>
-        <Link
-          href="/analizy"
-          className="inline-flex text-sm font-semibold text-sky-700 hover:underline"
-        >
-          Вернуться к каталогу анализов
-        </Link>
-      </div>
-    );
+  const { item, seo, canonicalSlug, indexable } = resolved;
+  if (indexable && slug !== canonicalSlug) {
+    permanentRedirect(`/analizy/${canonicalSlug}`);
   }
 
-  const baseUrl = "https://liteh26.ru";
+  const canonicalUrl = `${BASE_URL}/analizy/${canonicalSlug}`;
+  const description = seo?.description ??
+    "Страница исследования сохранена для каталога. Подробное медицинское описание готовится и пока не индексируется поисковыми системами.";
+  const preparation = seo?.preparation ??
+    "Требования к подготовке зависят от исследования. Уточните их у администратора лаборатории перед сдачей анализа.";
+
   return (
     <div className="space-y-8">
       <SchemaMarkup
         skipGlobal
         medicalTest={{
-          name: item.name,
+          name: seo?.title ?? item.name,
           code: item.code,
-          description: item.description,
-          preparation: item.preparation,
+          description,
+          preparation,
           price: item.price,
-          url: `${baseUrl}/analizy/${item.slug}`,
+          url: canonicalUrl,
         }}
         breadcrumbs={[
-          { name: "Главная", url: baseUrl },
-          { name: "Анализы", url: `${baseUrl}/analizy` },
-          { name: item.name, url: `${baseUrl}/analizy/${item.slug}` },
+          { name: "Главная", url: BASE_URL },
+          { name: "Анализы", url: `${BASE_URL}/analizy` },
+          { name: seo?.title ?? item.name, url: canonicalUrl },
         ]}
       />
+
       <section className="space-y-3 rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200 md:p-6">
         <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
+          <div className="max-w-3xl">
             <h1 className="text-2xl font-semibold text-slate-900 md:text-3xl">
-              {item.name}
+              {seo?.title ?? item.name}
             </h1>
             <p className="mt-1 text-sm text-slate-500">
-              Код анализа:{" "}
-              <span className="font-mono text-xs text-slate-700">
-                {item.code}
-              </span>
-              {item.category && (
-                <>
-                  {" "}
-                  · Категория:{" "}
-                  <span className="text-slate-700">{item.category}</span>
-                </>
-              )}
+              Код анализа: <span className="font-mono text-xs text-slate-700">{item.code}</span>
+              {item.category ? <> · Категория: <span className="text-slate-700">{item.category}</span></> : null}
             </p>
           </div>
           <div className="text-right">
             <p className="text-xs text-slate-500">Стоимость</p>
             <p className="text-xl font-semibold text-slate-900">
-              {item.price ? `${item.price} ₽` : "уточнить"}
+              {item.price != null ? `${item.price} ₽` : "уточнить"}
             </p>
           </div>
         </div>
@@ -120,38 +97,39 @@ export default function AnalyzePage({ params }: Props) {
 
       <section className="grid gap-6 md:grid-cols-[minmax(0,2fr),minmax(0,1.2fr)]">
         <div className="space-y-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-          <h2 className="text-sm font-semibold text-slate-900">
-            Описание исследования
-          </h2>
-          <p className="text-sm text-slate-600">
-            {item.description ||
-              "Подробное описание анализа будет добавлено после уточнения методик и нормативов лаборатории. Сейчас вы можете уточнить показания и интерпретацию результатов у врача клиники-партнера «Амадея»."}
-          </p>
+          <h2 className="text-sm font-semibold text-slate-900">Описание исследования</h2>
+          <p className="text-sm text-slate-600">{description}</p>
+          {seo?.when_prescribed ? (
+            <>
+              <h2 className="text-sm font-semibold text-slate-900">Когда назначают</h2>
+              <p className="text-sm text-slate-600">{seo.when_prescribed}</p>
+            </>
+          ) : null}
         </div>
         <div className="space-y-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-          <h2 className="text-sm font-semibold text-slate-900">
-            Подготовка к анализу
-          </h2>
-          <p className="text-sm text-slate-600">
-            {item.preparation ||
-              "Общие рекомендации: сдавать кровь натощак (8–12 часов не есть), избегать алкоголя и интенсивных нагрузок за сутки до исследования. Принимаете лекарства — обсудите подготовку с врачом."}
-          </p>
+          <h2 className="text-sm font-semibold text-slate-900">Подготовка к анализу</h2>
+          <p className="text-sm text-slate-600">{preparation}</p>
+          {item.biomaterial || seo?.material ? (
+            <p className="text-xs text-slate-500">Биоматериал: {seo?.material ?? item.biomaterial}</p>
+          ) : null}
+          {item.duration || seo?.result_time ? (
+            <p className="text-xs text-slate-500">Срок: {seo?.result_time ?? item.duration}</p>
+          ) : null}
         </div>
       </section>
 
       <section className="space-y-3 rounded-2xl bg-white p-4 text-slate-900 shadow-sm ring-1 ring-emerald-100 md:p-6">
-        <h2 className="text-sm font-semibold">Оформить заявку на анализ</h2>
+        <h2 className="text-sm font-semibold">Записаться на анализ</h2>
         <p className="text-xs text-slate-600">
-          Добавьте анализ в корзину и отправьте контактные данные — администратор
-          лаборатории свяжется с вами для согласования даты и времени.
+          Администратор подтвердит подготовку, стоимость, филиал и удобное время.
         </p>
         <div className="flex flex-wrap gap-2 text-xs">
-          <button
-            type="button"
+          <Link
+            href="/contacts#callback"
             className="inline-flex items-center justify-center rounded-full bg-emerald-700 px-5 py-2 font-semibold text-white shadow-sm transition hover:bg-emerald-800"
           >
-            Добавить в корзину
-          </button>
+            Оставить заявку
+          </Link>
           <Link
             href="/analizy"
             className="inline-flex items-center justify-center rounded-full border border-emerald-200 px-5 py-2 font-semibold text-emerald-700 transition hover:bg-emerald-50"
@@ -163,4 +141,3 @@ export default function AnalyzePage({ params }: Props) {
     </div>
   );
 }
-

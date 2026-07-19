@@ -6,6 +6,7 @@ import { DOCTORS } from "../../data/doctors";
 import type { DoctorFiltersState } from "../../components/doctor-filters";
 import DoctorFilters from "../../components/doctor-filters";
 import DoctorCard from "../../components/doctor-card";
+import type { ClinicId } from "../../data/clinics";
 
 function filterDoctors(
   doctors: typeof DOCTORS,
@@ -14,7 +15,7 @@ function filterDoctors(
   let list = doctors;
 
   if (filters.clinicId) {
-    list = list.filter((d) => d.clinicIds.includes(filters.clinicId as any));
+    list = list.filter((d) => d.clinicIds.includes(filters.clinicId as ClinicId));
   }
   if (filters.specialty) {
     list = list.filter((d) => d.specialties.includes(filters.specialty));
@@ -137,7 +138,9 @@ export default function VraciPage() {
                       >
                         <div className="min-w-0 flex-1">
                           <p className="font-medium text-slate-900">
-                            {doctor.name}
+                            <Link href={`/vraci/${doctor.id}`} className="hover:text-emerald-700 hover:underline">
+                              {doctor.name}
+                            </Link>
                           </p>
                           <p className="text-[12px] text-slate-600">
                             {doctor.specialties.join(", ")}

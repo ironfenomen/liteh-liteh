@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import analysesData from "@/data/analyses.json";
+import { getCanonicalAnalysisSlug } from "@/lib/analysis-seo";
 
 type Analyze = {
   code?: string;
@@ -49,7 +50,7 @@ export function HomeHeroClient() {
     setQuery("");
     setDropdownOpen(false);
     if (item.slug) {
-      router.push(`/analizy/${item.slug}`);
+      router.push(`/analizy/${getCanonicalAnalysisSlug({ code: item.code ?? "", slug: item.slug })}`);
     } else {
       router.push("/analizy");
     }

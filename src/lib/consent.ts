@@ -4,6 +4,7 @@
  */
 
 const CONSENT_KEY = "liteh_cookie_consent";
+export const METRIKA_CONSENT_EVENT = "liteh:metrika-consent";
 
 export function getConsent(): boolean {
   if (typeof window === "undefined") return false;
@@ -20,4 +21,5 @@ export function setConsent(): void {
   } catch {
     // ignore
   }
+  window.dispatchEvent(new Event(METRIKA_CONSENT_EVENT));
 }
